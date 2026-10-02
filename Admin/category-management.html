@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Category Management | Luxora Jewels</title>
+
+    <link rel="stylesheet" href="css/category-management.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         TOP HEADER
+    ====================================================== -->
+
+    <header class="top-header">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <span class="logo-mark">○</span>
+
+            <div>
+                <div class="logo-name">LUXEORA</div>
+                <div class="logo-sub">Jewels</div>
+            </div>
+        </div>
+
+
+        <!-- ADMIN -->
+        <div class="admin-area">
+
+            <span>ADMIN</span>
+
+            <button
+                class="admin-icon"
+                id="adminIcon"
+                type="button"
+            >
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN AREA
+    ====================================================== -->
+
+    <main class="category-page">
+
+
+        <!-- =================================================
+             FIXED PAGE TOP
+        ================================================== -->
+
+        <section class="category-page-top">
+
+            <!-- MENU -->
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                type="button"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+
+            <div class="page-heading-row">
+
+                <div>
+
+                    <h1>
+                        Category Management
+                    </h1>
+
+                    <div class="category-search">
+
+                        <input
+                            type="text"
+                            id="categorySearch"
+                            placeholder="Search Category"
+                            autocomplete="off"
+                        >
+
+                        <span class="search-icon">
+                            🔍
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADD CATEGORY -->
+
+                <button
+                    class="add-category-btn"
+                    id="addCategoryBtn"
+                    type="button"
+                >
+                    + Add Category
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CATEGORY TABLE
+        ================================================== -->
+
+        <section class="category-table-section">
+
+            <table class="category-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>No</th>
+
+                        <th>Category</th>
+
+                        <th>Products</th>
+
+                        <th>Status</th>
+
+                        <th>Edit</th>
+
+                        <th>Delete</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="categoryTableBody">
+
+                    <!-- JavaScript creates rows -->
+
+                </tbody>
+
+            </table>
+
+
+            <!-- NO RESULTS -->
+
+            <div
+                id="noResults"
+                class="no-results"
+            >
+                No categories found.
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SIDE MENU
+    ====================================================== -->
+
+    <aside
+        class="side-menu"
+        id="sideMenu"
+    >
+
+        <div class="side-menu-header">
+
+            <h2>
+                Luxora Jewels
+            </h2>
+
+            <button
+                class="close-menu"
+                id="closeMenu"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="product-management.html">
+                Product Management
+            </a>
+
+            <a
+                href="category-management.html"
+                class="active"
+            >
+                Category Management
+            </a>
+
+            <a href="user-management.html">
+                User Management
+            </a>
+
+            <a href="orders-management.html">
+                Order Management
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a
+                href="#"
+                id="logoutBtn"
+            >
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MENU BACKDROP -->
+
+    <div
+        class="menu-backdrop"
+        id="menuBackdrop"
+    ></div>
+
+
+
+    <!-- =====================================================
+         DELETE CONFIRMATION
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="deleteModal"
+    >
+
+        <div class="delete-modal">
+
+            <button
+                class="modal-close"
+                id="deleteClose"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                Delete Category
+            </h2>
+
+
+            <p>
+                Are you sure you want to delete
+                <strong id="deleteCategoryName"></strong>?
+            </p>
+
+
+            <div class="modal-buttons">
+
+                <button
+                    class="cancel-btn"
+                    id="deleteCancel"
+                    type="button"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    class="delete-confirm-btn"
+                    id="deleteConfirm"
+                    type="button"
+                >
+                    Yes, Delete
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         EDIT CATEGORY MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="editModal"
+    >
+
+        <div class="category-modal">
+
+            <button
+                class="modal-close"
+                id="editClose"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                Edit Category
+            </h2>
+
+
+            <!-- CATEGORY NAME -->
+
+            <div class="form-group">
+
+                <label for="editCategoryName">
+                    Category Name
+                </label>
+
+                <input
+                    type="text"
+                    id="editCategoryName"
+                    placeholder="Enter category name"
+                >
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label for="editCategoryDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="editCategoryDescription"
+                    placeholder="Enter category description"
+                ></textarea>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="form-group">
+
+                <label for="editCategoryStatus">
+                    Status
+                </label>
+
+                <select id="editCategoryStatus">
+
+                    <option value="listed">
+                        Listed
+                    </option>
+
+                    <option value="unlisted">
+                        Unlisted
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="modal-buttons">
+
+                <button
+                    class="cancel-btn"
+                    id="editCancel"
+                    type="button"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    class="save-btn"
+                    id="editSave"
+                    type="button"
+                >
+                    Update
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ADD CATEGORY MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="addModal"
+    >
+
+        <div class="category-modal">
+
+            <button
+                class="modal-close"
+                id="addClose"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                Add Category
+            </h2>
+
+
+            <!-- CATEGORY NAME -->
+
+            <div class="form-group">
+
+                <label for="addCategoryName">
+                    Category Name
+                </label>
+
+                <input
+                    type="text"
+                    id="addCategoryName"
+                    placeholder="Enter category name"
+                >
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label for="addCategoryDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="addCategoryDescription"
+                    placeholder="Enter category description"
+                ></textarea>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="form-group">
+
+                <label for="addCategoryStatus">
+                    Status
+                </label>
+
+                <select id="addCategoryStatus">
+
+                    <option value="listed">
+                        Listed
+                    </option>
+
+                    <option value="unlisted">
+                        Unlisted
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="modal-buttons">
+
+                <button
+                    class="cancel-btn"
+                    id="addCancel"
+                    type="button"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    class="save-btn"
+                    id="addSave"
+                    type="button"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SUCCESS MESSAGE
+    ====================================================== -->
+
+    <div
+        class="success-message"
+        id="successMessage"
+    >
+        Category updated successfully.
+    </div>
+
+
+
+    <script src="js/category-management.js"></script>
+
+</body>
+
+</html>

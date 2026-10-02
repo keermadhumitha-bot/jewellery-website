@@ -1,0 +1,1088 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: #d3d3d3;
+    color: #000;
+    font-family: Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+}
+
+
+
+/* =====================================================
+   TOP HEADER
+===================================================== */
+
+.top-header {
+
+    height: 60px;
+
+    background: #432b27;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid #30201d;
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: white;
+}
+
+
+.brand-logo {
+
+    color: #d5a928;
+
+    font-size: 28px;
+
+    line-height: 1;
+}
+
+
+.brand-name {
+
+    color: #d5a928;
+
+    font-size: 16px;
+
+    letter-spacing: 1px;
+}
+
+
+.brand-subtitle {
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+.admin-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    color: white;
+
+    font-size: 12px;
+}
+
+
+.admin-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 50%;
+
+    border: 2px solid white;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+}
+
+
+
+/* =====================================================
+   FIXED PRODUCT PAGE TOP
+===================================================== */
+
+.product-page-top {
+
+    position: fixed;
+
+    top: 60px;
+
+    left: 0;
+
+    right: 0;
+
+    height: 190px;
+
+    background: #d3d3d3;
+
+    z-index: 900;
+
+    padding: 22px 40px;
+
+    border-bottom: 1px solid #c1c1c1;
+}
+
+
+.menu-btn {
+
+    width: 36px;
+
+    height: 36px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    margin-bottom: 15px;
+
+    color: #000;
+}
+
+
+.product-page-top h1 {
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    color: #432b27;
+
+    margin-bottom: 15px;
+}
+
+
+.product-actions {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    width: 100%;
+}
+
+
+.product-search {
+
+    width: 350px;
+
+    height: 40px;
+
+    background: #f5efe2;
+
+    border: 1px solid #999;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 12px;
+}
+
+
+.product-search input {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    color: #000;
+}
+
+
+.product-search span {
+
+    font-size: 16px;
+}
+
+
+.add-product-btn {
+
+    background: #432b27;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    padding: 10px 20px;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+.add-product-btn:hover {
+
+    background: #000;
+
+}
+
+
+
+/* =====================================================
+   PRODUCT CONTENT
+===================================================== */
+
+/*
+   IMPORTANT:
+   We give the table enough top margin so it starts
+   BELOW the fixed heading/search section.
+*/
+
+.product-content {
+
+    padding-top: 250px;
+
+    background: white;
+
+    min-height: 100vh;
+}
+
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: white;
+}
+
+
+.product-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+
+    background: white;
+}
+
+
+
+/* =====================================================
+   TABLE HEADER
+
+   NOT sticky.
+
+   This is intentional.
+   It prevents the header from overlapping rows.
+===================================================== */
+
+.product-table thead {
+
+    background: #eee3d1;
+
+    color: #000;
+}
+
+
+.product-table th {
+
+    height: 46px;
+
+    padding: 10px 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+}
+
+
+.product-table th:nth-child(1) {
+    width: 6%;
+}
+
+.product-table th:nth-child(2) {
+    width: 36%;
+}
+
+.product-table th:nth-child(3) {
+    width: 12%;
+}
+
+.product-table th:nth-child(4) {
+    width: 12%;
+}
+
+.product-table th:nth-child(5) {
+    width: 12%;
+}
+
+.product-table th:nth-child(6) {
+    width: 11%;
+}
+
+.product-table th:nth-child(7) {
+    width: 11%;
+}
+
+
+
+/* =====================================================
+   TABLE ROWS
+===================================================== */
+
+.product-table tbody tr {
+
+    height: 76px;
+
+    border-bottom: 1px solid #ddd;
+
+    background: white;
+
+    transition: background 0.2s ease;
+}
+
+
+.product-table tbody tr:hover {
+
+    background: #faf8f5;
+}
+
+
+.product-table td {
+
+    padding: 10px 15px;
+
+    vertical-align: middle;
+
+    font-size: 14px;
+}
+
+
+
+/* =====================================================
+   PRODUCT CELL
+===================================================== */
+
+.product-cell {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    height: 76px;
+}
+
+
+.product-cell img {
+
+    width: 68px;
+
+    height: 58px;
+
+    object-fit: contain;
+
+    background: #f7f7f7;
+
+    flex-shrink: 0;
+}
+
+
+.product-cell span {
+
+    font-size: 15px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+
+/* =====================================================
+   STOCK
+===================================================== */
+
+.stock.available {
+
+    color: green;
+
+    font-weight: 500;
+}
+
+
+.stock.out-of-stock {
+
+    color: red;
+
+    font-weight: 600;
+}
+
+
+
+/* =====================================================
+   STATUS BUTTON
+===================================================== */
+
+.status-btn {
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 7px 15px;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+.status-btn.unlisted {
+
+    background: #eeeeee;
+
+    color: #000;
+}
+
+
+.status-btn.listed {
+
+    background: #432b27;
+
+    color: white;
+}
+
+
+
+/* =====================================================
+   EDIT BUTTON
+===================================================== */
+
+.edit-btn {
+
+    background: #527bea;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 7px 18px;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+}
+
+
+.edit-btn:hover {
+
+    background: #3d65d0;
+}
+
+
+
+/* =====================================================
+   DELETE BUTTON
+===================================================== */
+
+.delete-btn {
+
+    background: #f01919;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 7px 17px;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+}
+
+
+.delete-btn:hover {
+
+    background: #c90000;
+}
+
+
+
+/* =====================================================
+   SIDE MENU
+===================================================== */
+
+.menu-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.25);
+
+    z-index: 1500;
+
+    display: none;
+}
+
+
+.menu-overlay.show {
+
+    display: block;
+}
+
+
+.side-menu {
+
+    position: fixed;
+
+    top: 0;
+
+    left: -290px;
+
+    width: 290px;
+
+    height: 100vh;
+
+    background: white;
+
+    z-index: 1600;
+
+    transition: left 0.3s ease;
+
+    box-shadow: 5px 0 20px rgba(0,0,0,0.15);
+}
+
+
+.side-menu.open {
+
+    left: 0;
+}
+
+
+.side-menu-header {
+
+    height: 60px;
+
+    background: #432b27;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 20px;
+}
+
+
+.side-menu-header h2 {
+
+    font-size: 17px;
+
+    font-weight: 400;
+}
+
+
+.side-menu-header button {
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 27px;
+
+    cursor: pointer;
+}
+
+
+.side-menu nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding-top: 15px;
+}
+
+
+.side-menu nav a {
+
+    text-decoration: none;
+
+    color: #000;
+
+    padding: 15px 22px;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+
+.side-menu nav a:hover {
+
+    background: #d3d3d3;
+
+    color: #432b27;
+}
+
+
+.side-menu nav a.active {
+
+    background: #000;
+
+    color: white;
+}
+
+
+
+/* =====================================================
+   MODALS
+
+   IMPORTANT:
+   display:none means they take ZERO space
+   until JavaScript opens them.
+===================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 3000;
+
+    padding: 20px;
+}
+
+
+.modal.show {
+
+    display: flex;
+}
+
+
+
+/* =====================================================
+   MODAL BOX
+===================================================== */
+
+.modal-box {
+
+    background: white;
+
+    border-radius: 15px;
+
+    width: 450px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 28px;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+}
+
+
+.modal-box h2 {
+
+    color: #432b27;
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+    margin-bottom: 20px;
+}
+
+
+.delete-box {
+
+    width: 400px;
+
+    text-align: center;
+}
+
+
+.delete-box p {
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
+}
+
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.product-form-box {
+
+    width: 600px;
+}
+
+
+.form-section {
+
+    margin-bottom: 20px;
+}
+
+
+.form-section h3 {
+
+    color: #432b27;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    margin-bottom: 10px;
+}
+
+
+.form-section label {
+
+    display: block;
+
+    font-size: 13px;
+
+    margin: 8px 0 5px;
+}
+
+
+.form-section input,
+.form-section textarea,
+.form-section select {
+
+    width: 100%;
+
+    background: white;
+
+    border: 1px solid #999;
+
+    border-radius: 6px;
+
+    padding: 10px;
+
+    font-family: Georgia, serif;
+
+    outline: none;
+}
+
+
+.form-section textarea {
+
+    height: 80px;
+
+    resize: vertical;
+}
+
+
+.form-section input:focus,
+.form-section textarea:focus,
+.form-section select:focus {
+
+    border-color: #432b27;
+}
+
+
+
+/* =====================================================
+   FILE UPLOAD
+===================================================== */
+
+.media-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.choose-file {
+
+    display: inline-block;
+
+    background: #432b27;
+
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+
+.choose-file input {
+
+    display: none;
+}
+
+
+.media-row span {
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+
+/* =====================================================
+   MODAL BUTTONS
+===================================================== */
+
+.modal-buttons {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.cancel-btn {
+
+    background: white;
+
+    color: #000;
+
+    border: 1px solid #555;
+
+    border-radius: 6px;
+
+    padding: 9px 20px;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+}
+
+
+.cancel-btn:hover {
+
+    background: #eeeeee;
+}
+
+
+.update-btn,
+.add-btn {
+
+    background: #432b27;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    padding: 9px 22px;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+}
+
+
+.update-btn:hover,
+.add-btn:hover {
+
+    background: #000;
+}
+
+
+.confirm-delete-btn {
+
+    background: #f01919;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    padding: 9px 20px;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+}
+
+
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+.success-message {
+
+    position: fixed;
+
+    top: 80px;
+
+    right: 25px;
+
+    background: #432b27;
+
+    color: white;
+
+    padding: 13px 20px;
+
+    border-radius: 7px;
+
+    z-index: 5000;
+
+    animation: messageIn 0.3s ease;
+}
+
+
+@keyframes messageIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .product-page-top {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+    }
+
+
+    .product-search {
+
+        width: 250px;
+    }
+
+
+    .product-page-top h1 {
+
+        font-size: 28px;
+    }
+
+
+    .product-content {
+
+        padding-top: 250px;
+    }
+
+
+    .product-table {
+
+        min-width: 950px;
+    }
+
+
+    .product-form-box {
+
+        width: 95%;
+    }
+
+}

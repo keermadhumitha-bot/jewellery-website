@@ -1,0 +1,397 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f0e5;
+    color: #432b27;
+}
+
+
+/* ==============================
+   LOGIN PAGE
+================================ */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background: #f8f0e5;
+}
+
+
+/* ==============================
+   LOGIN CARD
+================================ */
+
+.auth-card {
+    width: 430px;
+
+    background: #ffffff;
+
+    padding: 42px 45px;
+
+    border: 1px solid #e3d5c5;
+
+    box-shadow:
+        0 10px 30px rgba(67, 43, 39, 0.10);
+}
+
+
+/* ==============================
+   LOGO
+================================ */
+
+.auth-logo {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 28px;
+}
+
+.auth-logo a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    text-decoration: none;
+
+    color: #432b27;
+}
+
+.auth-logo img {
+    width: 36px;
+    height: 36px;
+
+    object-fit: contain;
+}
+
+.auth-logo span {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 28px;
+
+    letter-spacing: 3px;
+
+    color: #432b27;
+}
+
+
+/* ==============================
+   TEXT
+================================ */
+
+.welcome-text {
+    text-align: center;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #a27a3d;
+
+    margin-bottom: 8px;
+}
+
+.auth-card h1 {
+    text-align: center;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 32px;
+
+    font-weight: 500;
+
+    color: #432b27;
+
+    margin-bottom: 8px;
+}
+
+.auth-subtitle {
+    text-align: center;
+
+    font-size: 13px;
+
+    color: #776862;
+
+    margin-bottom: 30px;
+}
+
+
+/* ==============================
+   FORM
+================================ */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #432b27;
+
+    margin-bottom: 7px;
+}
+
+.form-group input {
+    width: 100%;
+
+    height: 45px;
+
+    padding: 0 13px;
+
+    border: 1px solid #cfc2b6;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    font-size: 13px;
+
+    color: #432b27;
+
+    background: #ffffff;
+}
+
+.form-group input:focus {
+    border-color: #a27a3d;
+
+    box-shadow: 0 0 0 2px rgba(162, 122, 61, 0.08);
+}
+
+
+/* ==============================
+   LOGIN OPTIONS
+================================ */
+
+.login-options {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 4px 0 20px;
+}
+
+.remember-me {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 12px;
+
+    color: #776862;
+}
+
+.remember-me input {
+    accent-color: #a27a3d;
+}
+
+.login-options a {
+    font-size: 12px;
+
+    color: #a27a3d;
+
+    text-decoration: none;
+}
+
+.login-options a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   LOGIN BUTTON
+================================ */
+
+.login-button {
+    width: 100%;
+
+    height: 46px;
+
+    border: none;
+
+    background: #432b27;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    border-radius: 4px;
+
+    transition: 0.3s;
+}
+
+.login-button:hover {
+    background: #5a3a34;
+}
+
+
+/* ==============================
+   DIVIDER
+================================ */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 25px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #e2d8ce;
+}
+
+.divider span {
+    font-size: 11px;
+
+    color: #999;
+}
+
+
+/* ==============================
+   SOCIAL BUTTONS
+================================ */
+
+.social-button {
+    width: 100%;
+
+    height: 44px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid #d6cbc1;
+
+    background: #ffffff;
+
+    color: #432b27;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    transition: 0.3s;
+}
+
+.social-button:hover {
+    background: #f8f0e5;
+
+    border-color: #a27a3d;
+}
+
+.social-icon {
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+/* ==============================
+   SIGN UP
+================================ */
+
+.signup-text {
+    text-align: center;
+
+    font-size: 13px;
+
+    color: #776862;
+
+    margin-top: 25px;
+}
+
+.signup-text a {
+    color: #a27a3d;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   BACK HOME
+================================ */
+
+.back-home {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #776862;
+
+    font-size: 12px;
+
+    text-decoration: none;
+}
+
+.back-home:hover {
+    color: #a27a3d;
+}
+
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 500px) {
+
+    .auth-card {
+        width: 100%;
+
+        padding: 35px 25px;
+    }
+
+    .auth-logo span {
+        font-size: 24px;
+    }
+
+}

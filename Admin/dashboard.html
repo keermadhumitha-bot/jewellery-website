@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Luxora Jewels - Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body class="admin-dashboard">
+
+    <!-- ================= TOP HEADER ================= -->
+
+    <header class="top-header">
+
+        <!-- LOGO -->
+        <div class="logo-area">
+            <div class="logo-symbol">○</div>
+
+            <div class="logo-text">
+                <span>LUXEORA</span>
+                <strong>Jewels</strong>
+            </div>
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="search-wrapper">
+
+            <input
+                type="text"
+                id="adminSearch"
+                placeholder="Search"
+                autocomplete="off"
+            >
+
+            <div id="searchResults" class="search-results"></div>
+
+        </div>
+
+
+        <!-- ADMIN -->
+        <div class="admin-area">
+
+            <span id="adminName">ADMIN</span>
+
+            <button class="admin-icon" id="adminButton">
+                <span>●</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= ADMIN POPUP ================= -->
+
+    <div class="admin-popup" id="adminPopup">
+
+        <div class="popup-header">
+            <div class="popup-avatar">A</div>
+
+            <div>
+                <strong>Admin</strong>
+                <small>Administrator</small>
+            </div>
+        </div>
+
+        <div class="popup-line"></div>
+
+        <a href="profile.html">My Profile</a>
+        <a href="profile.html">Account Settings</a>
+        <a href="#">Notifications</a>
+        <a href="#">Security</a>
+        <a href="#">Help & Support</a>
+        <a href="#">Contacts</a>
+
+        <div class="popup-line"></div>
+
+        <a href="login.html" class="logout">Logout</a>
+
+    </div>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav class="admin-nav">
+
+        <a href="dashboard.html" class="nav-item active">
+            Dashboard
+        </a>
+
+        <a href="orders-management.html" class="nav-item">
+            Orders
+        </a>
+
+        <a href="product-management.html" class="nav-item">
+            Product
+        </a>
+
+        <a href="category-management.html" class="nav-item">
+            Category
+        </a>
+
+        <a href="users.html" class="nav-item">
+            User
+        </a>
+
+    </nav>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="dashboard-container">
+
+
+        <!-- GREETING -->
+
+        <section class="welcome-section">
+
+            <div>
+
+                <h1>
+                    Hello, Admin! <span>👋</span>
+                </h1>
+
+                <p>
+                    Welcome to Luxora Jewels. Manage your data easily with us
+                </p>
+
+            </div>
+
+
+            <button class="download-btn">
+                Download
+                <span>↓</span>
+            </button>
+
+        </section>
+
+
+        <!-- ================= DASHBOARD GRID ================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- LEFT SIDE -->
+
+            <div class="left-column">
+
+
+                <!-- STAT CARDS -->
+
+                <div class="stats-grid">
+
+
+                    <!-- REVENUE -->
+
+                    <div class="stat-card">
+
+                        <span class="card-dot"></span>
+
+                        <p>Total Revenue</p>
+
+                        <h2>Rs 2,06,965 .00</h2>
+
+                    </div>
+
+
+                    <!-- PENDING -->
+
+                    <div class="stat-card">
+
+                        <span class="card-dot"></span>
+
+                        <p>Pending Orders</p>
+
+                        <h2>3</h2>
+
+                    </div>
+
+
+                    <!-- USERS -->
+
+                    <div class="stat-card">
+
+                        <span class="card-dot"></span>
+
+                        <p>User</p>
+
+                        <h2>136</h2>
+
+                    </div>
+
+
+                    <!-- ORDERS -->
+
+                    <div class="stat-card">
+
+                        <span class="card-dot"></span>
+
+                        <p>Total Orders</p>
+
+                        <h2>1043</h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BAR CHART -->
+
+                <div class="chart-card bar-card">
+
+                    <div class="chart-heading">
+
+                        <h3>
+                            Jewellery Category vs Sales
+                        </h3>
+
+
+                        <select id="periodSelect">
+
+                            <option value="today">
+                                Today
+                            </option>
+
+                            <option value="month1">
+                                Last 1 Month
+                            </option>
+
+                            <option value="month2">
+                                Last 2 Month
+                            </option>
+
+                            <option value="year">
+                                Last Year
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="bar-chart-area">
+
+                        <div class="y-axis">
+                            <span>100</span>
+                            <span>80</span>
+                            <span>60</span>
+                            <span>40</span>
+                            <span>20</span>
+                            <span>0</span>
+                        </div>
+
+
+                        <div class="bars-container" id="barsContainer">
+
+                            <!-- JS creates bars -->
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LEGEND -->
+
+                    <div class="bar-legend">
+
+                        <span>
+                            <i class="legend earrings"></i>
+                            Earrings
+                        </span>
+
+                        <span>
+                            <i class="legend rings"></i>
+                            Rings
+                        </span>
+
+                        <span>
+                            <i class="legend bracelet"></i>
+                            Bracelet
+                        </span>
+
+                        <span>
+                            <i class="legend bangle"></i>
+                            Bangle
+                        </span>
+
+                        <span>
+                            <i class="legend necklace"></i>
+                            Necklace
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="right-column">
+
+
+                <!-- PIE CHART -->
+
+                <div class="chart-card pie-card">
+
+                    <h3>
+                        Most Sold Noble Metals
+                    </h3>
+
+
+                    <div class="pie-wrapper">
+
+                        <div class="pie-chart" id="pieChart">
+
+                            <div class="pie-hole"></div>
+
+                        </div>
+
+
+                        <div class="pie-tooltip" id="pieTooltip">
+
+                            <strong id="tooltipName">
+                                Gold Ring
+                            </strong>
+
+                            <span id="tooltipValue">
+                                28%
+                            </span>
+
+                        </div>
+
+
+                        <!-- LEGEND -->
+
+                        <div class="pie-legend">
+
+                            <span>
+                                <i style="background:#7d6be8"></i>
+                                Gold Ring
+                            </span>
+
+                            <span>
+                                <i style="background:#ff8582"></i>
+                                Gold Bracelet
+                            </span>
+
+                            <span>
+                                <i style="background:#30b1cf"></i>
+                                Gold Bangle
+                            </span>
+
+                            <span>
+                                <i style="background:#ffa944"></i>
+                                Gold Necklace
+                            </span>
+
+                            <span>
+                                <i style="background:#668fd4"></i>
+                                Gold Earrings
+                            </span>
+
+                            <span>
+                                <i style="background:#6ac88d"></i>
+                                Silver Bangle
+                            </span>
+
+                            <span>
+                                <i style="background:#8065db"></i>
+                                Platinum Earrings
+                            </span>
+
+                            <span>
+                                <i style="background:#51bcae"></i>
+                                Platinum Ring
+                            </span>
+
+                            <span>
+                                <i style="background:#ffd03a"></i>
+                                Silver Necklaces
+                            </span>
+
+                            <span>
+                                <i style="background:#ee8f42"></i>
+                                Platinum Bracelets
+                            </span>
+
+                            <span>
+                                <i style="background:#8bd34e"></i>
+                                Silver Ring
+                            </span>
+
+                            <span>
+                                <i style="background:#b578d9"></i>
+                                Silver Bracelets
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TRENDING PRODUCTS -->
+
+                <div class="trending-card">
+
+                    <div class="trending-heading">
+
+                        <h3>
+                            Trending Products
+                        </h3>
+
+                       <button class="view-all-btn"onclick="window.location.href='best-selling.html'">
+                         View All
+                       </button>
+
+                    </div>
+
+
+                    <div class="trending-products">
+
+
+                        <!-- PRODUCT 1 -->
+
+                        <div class="trend-product">
+
+                            <div class="product-image">
+                                💍
+                            </div>
+
+                            <div>
+                                <h4>
+                                    Diamond Crystal Lotus Ring
+                                </h4>
+
+                                <p>
+                                    Rs 3000.00
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRODUCT 2 -->
+
+                        <div class="trend-product">
+
+                            <div class="product-image">
+                                📿
+                            </div>
+
+                            <div>
+                                <h4>
+                                    Diamond Crystal Necklace
+                                </h4>
+
+                                <p>
+                                    Rs 3450.00
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRODUCT 3 -->
+
+                        <div class="trend-product">
+
+                            <div class="product-image">
+                                💎
+                            </div>
+
+                            <div>
+                                <h4>
+                                    Diamond Crystal Earrings
+                                </h4>
+
+                                <p>
+                                    Rs 4320.00
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

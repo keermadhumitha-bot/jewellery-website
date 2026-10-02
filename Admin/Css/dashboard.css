@@ -1,0 +1,834 @@
+/* ==================================================
+   DASHBOARD
+================================================== */
+
+.dashboard-container {
+    padding: 27px 27px 35px;
+}
+body.admin-dashboard {
+    background: #d7d7d9;
+}
+
+/* ================= WELCOME ================= */
+
+.welcome-section {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 2px 20px;
+}
+
+.welcome-section h1 {
+    font-size: 26px;
+
+    font-weight: 400;
+}
+
+.welcome-section h1 span {
+    font-size: 27px;
+}
+
+.welcome-section p {
+    color: #666;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+.download-btn {
+    border: none;
+
+    background: #444;
+
+    color: white;
+
+    border-radius: 20px;
+
+    padding: 8px 13px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.download-btn span {
+    font-size: 16px;
+
+    margin-left: 5px;
+}
+
+
+/* ==================================================
+   MAIN GRID
+================================================== */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+
+/* ==================================================
+   LEFT COLUMN
+================================================== */
+
+.left-column {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* ================= STAT CARDS ================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 6px;
+}
+
+.stat-card {
+    height: 129px;
+
+    background: #fff;
+
+    border-radius: 17px;
+
+    padding: 25px 13px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: transform .3s ease,
+                background .4s ease,
+                box-shadow .3s ease;
+}
+
+
+/* HOVER MESH GRADIENT */
+
+.stat-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    background:
+        linear-gradient(
+            45deg,
+            rgba(125,107,232,.65),
+            rgba(255,133,130,.55),
+            rgba(48,177,207,.55),
+            rgba(255,169,68,.55),
+            rgba(106,200,141,.55)
+        );
+
+    background-size: 120px 120px;
+
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            rgba(125,107,232,.3) 0,
+            rgba(125,107,232,.3) 2px,
+            transparent 2px,
+            transparent 12px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255,133,130,.3) 0,
+            rgba(255,133,130,.3) 2px,
+            transparent 2px,
+            transparent 12px
+        );
+
+    transition: opacity .3s;
+}
+
+.stat-card:hover::before {
+    opacity: 1;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.12);
+}
+
+.stat-card > * {
+    position: relative;
+
+    z-index: 2;
+}
+
+.card-dot {
+    position: absolute;
+
+    right: 9px;
+    top: 8px;
+
+    width: 6px;
+    height: 6px;
+
+    background: #44291e;
+
+    border-radius: 50%;
+}
+
+.stat-card p {
+    font-size: 16px;
+
+    margin-bottom: 32px;
+}
+
+.stat-card h2 {
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   CHART CARD
+================================================== */
+
+.chart-card {
+    background: white;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.bar-card {
+    height: 365px;
+
+    padding: 26px 16px 15px;
+}
+
+.chart-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 14px 20px;
+}
+
+.chart-heading h3,
+.pie-card h3,
+.trending-card h3 {
+    font-size: 14px;
+
+    font-weight: 400;
+}
+
+.chart-heading select {
+    width: 90px;
+
+    height: 20px;
+
+    border: 1px solid #aaa;
+
+    background: white;
+
+    font-size: 9px;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   BAR CHART
+================================================== */
+
+.bar-chart-area {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   Y AXIS
+========================= */
+
+.y-axis {
+    width: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-bottom: 25px;
+
+    font-size: 9px;
+    color: #777;
+}
+
+
+/* =========================
+   BARS CONTAINER
+========================= */
+
+.bars-container {
+    flex: 1;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-around;
+
+    gap: 15px;
+
+    padding: 0 10px 25px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* =========================
+   BAR GROUP
+========================= */
+
+.bar-group {
+    height: 100%;
+
+    flex: 1;
+
+    max-width: 80px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    position: relative;
+}
+
+
+/* =========================
+   INDIVIDUAL BAR
+========================= */
+
+.bar {
+    width: 10px;
+
+    min-height: 2px;
+
+    border-radius: 2px 2px 0 0;
+
+    transition:
+        height 0.5s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+
+/* =========================
+   BAR HOVER
+========================= */
+
+.bar:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================
+   BAR VALUE TOOLTIP
+========================= */
+
+.bar:hover::after {
+
+    content: attr(data-value);
+
+    position: absolute;
+
+    bottom: calc(100% + 7px);
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #333;
+
+    color: white;
+
+    padding: 4px 6px;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+
+    z-index: 20;
+}
+
+
+/* ==================================================
+   BAR COLORS
+================================================== */
+
+.bar.earrings {
+    background: #8065db;
+}
+
+.bar.rings {
+    background: #ff8582;
+}
+
+.bar.bracelet {
+    background: #30b1cf;
+}
+
+.bar.bangle {
+    background: #ffa944;
+}
+
+.bar.necklace {
+    background: #668fd4;
+}
+
+
+/* ==================================================
+   LEGEND
+================================================== */
+
+.bar-legend {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 12px;
+
+    flex-wrap: wrap;
+
+    font-size: 8px;
+}
+
+
+.bar-legend span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+.legend {
+
+    width: 7px;
+
+    height: 7px;
+
+    display: inline-block;
+}
+
+
+.legend.earrings {
+    background: #8065db;
+}
+
+.legend.rings {
+    background: #ff8582;
+}
+
+.legend.bracelet {
+    background: #30b1cf;
+}
+
+.legend.bangle {
+    background: #ffa944;
+}
+
+.legend.necklace {
+    background: #668fd4;
+}
+
+/* ==================================================
+   RIGHT COLUMN
+================================================== */
+
+.right-column {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+/* ==================================================
+   PIE CARD
+================================================== */
+
+.pie-card {
+    height: 360px;
+
+    padding: 25px 38px;
+}
+
+.pie-card h3 {
+    margin-bottom: 12px;
+}
+
+
+/* PIE AREA */
+
+.pie-wrapper {
+    height: 290px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* ==================================================
+   3D PIE CHART
+================================================== */
+
+.pie-chart {
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    background:
+        conic-gradient(
+            #7d6be8 0deg 30deg,
+            #ff8582 30deg 55deg,
+            #30b1cf 55deg 80deg,
+            #ffa944 80deg 112deg,
+            #668fd4 112deg 145deg,
+            #51bcae 145deg 180deg,
+            #ffd03a 180deg 215deg,
+            #8065db 215deg 235deg,
+            #6ac88d 235deg 270deg,
+            #ee8f42 270deg 320deg,
+            #8bd34e 320deg 340deg,
+            #b578d9 340deg 360deg
+        );
+
+    box-shadow:
+        8px 10px 0 #aaa;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.pie-chart:hover {
+    transform:
+        perspective(600px)
+        rotateX(10deg)
+        translateY(-5px);
+
+    box-shadow:
+        10px 17px 0 #999,
+        0 15px 30px rgba(0,0,0,.15);
+}
+
+
+/* PIE CENTER */
+
+.pie-hole {
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* PIE TOOLTIP */
+
+.pie-tooltip {
+    position: absolute;
+
+    background: rgba(20,20,20,.93);
+
+    color: white;
+
+    padding: 8px 12px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transform:
+        translateY(5px);
+
+    transition: .2s;
+
+    z-index: 20;
+}
+
+.pie-tooltip.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+.pie-tooltip strong,
+.pie-tooltip span {
+    display: block;
+}
+
+
+/* ==================================================
+   PIE LEGEND
+================================================== */
+
+.pie-legend {
+    position: absolute;
+
+    right: -8px;
+
+    top: 20px;
+
+    width: 105px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    font-size: 8px;
+
+    color: #777;
+}
+
+.pie-legend span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.pie-legend i {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+}
+
+
+/* ==================================================
+   TRENDING PRODUCTS
+================================================== */
+
+.trending-card {
+    height: 292px;
+
+    background: white;
+
+    border: 1px solid #333;
+
+    border-radius: 17px;
+
+    padding: 25px 30px;
+}
+
+.trending-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.view-all-btn {
+    width: 85px;
+
+    height: 21px;
+
+    border: 1px solid #333;
+
+    border-radius: 15px;
+
+    background: white;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.view-all-btn:hover {
+    color: white;
+
+    background: #111;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.15);
+}
+
+
+/* TREND PRODUCTS */
+
+.trending-products {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.trend-product {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    transition: .25s;
+}
+
+.trend-product:hover {
+    transform:
+        translateX(5px);
+}
+
+.product-image {
+    width: 45px;
+    height: 45px;
+
+    background: #eee;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+}
+
+.trend-product h4 {
+    font-size: 13px;
+
+    font-weight: 400;
+
+    margin-bottom: 7px;
+}
+
+.trend-product p {
+    font-size: 10px;
+
+    color: #777;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 850px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .right-column {
+        margin-top: 10px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .top-header {
+        padding: 0 15px;
+    }
+
+    .logo-area {
+        width: auto;
+    }
+
+    .search-wrapper {
+        display: none;
+    }
+
+    .admin-nav {
+        flex-wrap: wrap;
+    }
+
+    .dashboard-container {
+        padding: 20px 12px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pie-card {
+        padding: 20px;
+    }
+
+}

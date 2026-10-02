@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Rings | Luxéora Jewels</title>
+
+    <link rel="stylesheet" href="css/collections.css">
+      <link rel="stylesheet" href="css/common.css">
+
+</head>
+
+<body>
+
+
+<!-- COMMON HEADER -->
+
+<header class="main-header">
+
+    <div class="header-logo">
+
+        <a href="home.html">
+
+            <img
+                src="assets/images/logo.png"
+                alt="Luxéora"
+                class="logo-ring"
+            >
+
+            <span class="logo-text">
+                LUXÉORA
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <div class="header-search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Jewellery"
+        >
+
+        <button
+            type="button"
+            id="searchButton"
+        >
+            🔍
+        </button>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <a
+            href="profile.html"
+            class="header-action"
+            title="Profile"
+        >
+            ♙
+        </a>
+
+        <a
+            href="wishlist.html"
+            class="header-action"
+            title="Wishlist"
+        >
+            ♡
+        </a>
+
+        <a
+            href="cart.html"
+            class="header-action"
+            title="Cart"
+        >
+            🛒
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- COMMON MENU -->
+
+<nav class="category-nav">
+     <a href="home.html">
+                HOME
+            </a>
+
+    <a href="collections.html">
+        ALL JEWELLERY
+    </a>
+
+    <a href="rings.html">
+        RINGS
+    </a>
+
+    <a href="necklaces.html">
+        NECKLACES
+    </a>
+
+    <a href="bracelets.html">
+        BRACELETS
+    </a>
+
+    <a href="earrings.html">
+        EARRINGS
+    </a>
+
+    <a href="bangles.html">
+        BANGLES
+    </a>
+
+</nav>
+
+
+<!-- =========================================================
+     CATEGORY PAGE
+     ========================================================= -->
+
+<section class="collection-header">
+
+    <div>
+
+        <p class="collection-small-title">
+            LUXÉORA COLLECTION
+        </p>
+
+        <h1 id="collectionTitle">
+            Earrings
+        </h1>
+
+        <p>
+            Discover our elegant collection of rings
+            crafted for every special moment.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- TOOLBAR -->
+
+<section class="collection-toolbar">
+
+    <span id="productCount">
+        0 Products
+    </span>
+
+
+    <div class="toolbar-actions">
+
+        <button
+            type="button"
+            class="filter-button"
+            id="openFilterButton"
+        >
+            ☰ FILTER
+        </button>
+
+
+        <select id="sortProducts">
+
+            <option value="default">
+                Sort By
+            </option>
+
+            <option value="low">
+                Price: Low to High
+            </option>
+
+            <option value="high">
+                Price: High to Low
+            </option>
+
+            <option value="name">
+                Name: A to Z
+            </option>
+
+        </select>
+
+    </div>
+
+</section>
+
+
+<!-- FILTER OVERLAY -->
+
+<div
+    class="filter-overlay"
+    id="filterOverlay"
+></div>
+
+
+<!-- FILTER SIDEBAR -->
+
+<aside
+    class="filter-sidebar"
+    id="filterSidebar"
+>
+
+    <div class="filter-header">
+
+        <h2>
+            Filters
+        </h2>
+
+        <button
+            type="button"
+            id="closeFilterButton"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <!-- Jewellery Type -->
+
+    <div class="filter-group">
+
+        <button
+            type="button"
+            class="filter-title"
+        >
+            <span>Jewellery Type</span>
+            <span>⌃</span>
+        </button>
+
+        <div class="filter-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="category"
+                    value="Ring"
+                >
+                Ring
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="category"
+                    value="Necklace"
+                >
+                Necklace
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="category"
+                    value="Bracelet"
+                >
+                Bracelet
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="category"
+                    value="Earring"
+                >
+                Earrings
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="category"
+                    value="Bangle"
+                >
+                Bangle
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Price -->
+
+    <div class="filter-group">
+
+        <button
+            type="button"
+            class="filter-title"
+        >
+            <span>Price</span>
+            <span>⌃</span>
+        </button>
+
+        <div class="filter-options">
+
+            <div class="price-inputs">
+
+                <div>
+
+                    <label>
+                        Minimum
+                    </label>
+
+                    <input
+                        type="number"
+                        id="minPrice"
+                        placeholder="₹ 0"
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>
+                        Maximum
+                    </label>
+
+                    <input
+                        type="number"
+                        id="maxPrice"
+                        placeholder="₹ 5,00,000"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Metal Purity -->
+
+    <div class="filter-group">
+
+        <button
+            type="button"
+            class="filter-title"
+        >
+            <span>Metal Purity</span>
+            <span>⌃</span>
+        </button>
+
+        <div class="filter-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="purity"
+                    value="9KT"
+                >
+                9KT
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="purity"
+                    value="14KT"
+                >
+                14KT
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="purity"
+                    value="18KT"
+                >
+                18KT
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="purity"
+                    value="22KT"
+                >
+                22KT
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="purity"
+                    value="Platinum"
+                >
+                Platinum
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Shop By Style -->
+
+    <div class="filter-group">
+
+        <button
+            type="button"
+            class="filter-title"
+        >
+            <span>Shop By Style</span>
+            <span>⌃</span>
+        </button>
+
+        <div class="filter-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="style"
+                    value="Classic"
+                >
+                Classic
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="style"
+                    value="Modern"
+                >
+                Modern
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="style"
+                    value="Minimal"
+                >
+                Minimal
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="style"
+                    value="Bridal"
+                >
+                Bridal
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="style"
+                    value="Statement"
+                >
+                Statement
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Occasions -->
+
+    <div class="filter-group">
+
+        <button
+            type="button"
+            class="filter-title"
+        >
+            <span>Occasions</span>
+            <span>⌃</span>
+        </button>
+
+        <div class="filter-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="occasion"
+                    value="Wedding"
+                >
+                Wedding
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="occasion"
+                    value="Party"
+                >
+                Party
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="occasion"
+                    value="Daily Wear"
+                >
+                Daily Wear
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="occasion"
+                    value="Engagement"
+                >
+                Engagement
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="occasion"
+                    value="Festive"
+                >
+                Festive
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Shop By Design -->
+
+    <div class="filter-group">
+
+        <button
+            type="button"
+            class="filter-title"
+        >
+            <span>Shop By Design</span>
+            <span>⌃</span>
+        </button>
+
+        <div class="filter-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="design"
+                    value="Floral"
+                >
+                Floral
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="design"
+                    value="Geometric"
+                >
+                Geometric
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="design"
+                    value="Traditional"
+                >
+                Traditional
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="design"
+                    value="Contemporary"
+                >
+                Contemporary
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Size -->
+
+    <div class="filter-group">
+
+        <button
+            type="button"
+            class="filter-title"
+        >
+            <span>Size</span>
+            <span>⌃</span>
+        </button>
+
+        <div class="filter-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="size"
+                    value="Small"
+                >
+                Small
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="size"
+                    value="Medium"
+                >
+                Medium
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="size"
+                    value="Large"
+                >
+                Large
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Gems -->
+
+    <div class="filter-group">
+
+        <button
+            type="button"
+            class="filter-title"
+        >
+            <span>Gems</span>
+            <span>⌃</span>
+        </button>
+
+        <div class="filter-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="gem"
+                    value="Diamond"
+                >
+                Diamond
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="gem"
+                    value="Ruby"
+                >
+                Ruby
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="gem"
+                    value="Emerald"
+                >
+                Emerald
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="gem"
+                    value="Pearl"
+                >
+                Pearl
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="gem"
+                    value="Sapphire"
+                >
+                Sapphire
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Gender -->
+
+    <div class="filter-group">
+
+        <button
+            type="button"
+            class="filter-title"
+        >
+            <span>Gender</span>
+            <span>⌃</span>
+        </button>
+
+        <div class="filter-options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="gender"
+                    value="Women"
+                >
+                Women
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="gender"
+                    value="Men"
+                >
+                Men
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="gender"
+                    value="Unisex"
+                >
+                Unisex
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- Filter buttons -->
+
+    <div class="filter-actions">
+
+        <button
+            type="button"
+            id="resetFilters"
+            class="reset-button"
+        >
+            RESET
+        </button>
+
+        <button
+            type="button"
+            id="applyFilters"
+            class="apply-button"
+        >
+            APPLY FILTERS
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- PRODUCTS -->
+
+<main class="collection-main">
+
+    <div
+        class="product-grid"
+        id="productGrid"
+    ></div>
+
+
+    <div
+        class="no-products"
+        id="noProducts"
+    >
+
+        <h2>
+            No Jewellery Found
+        </h2>
+
+        <p>
+            Try changing or removing some filters.
+        </p>
+
+    </div>
+
+</main>
+
+
+<!-- COMMON FOOTER -->
+
+<footer class="footer-section">
+
+    <div class="footer-container">
+
+        <div class="footer-column footer-brand">
+
+            <h2>Luxéora</h2>
+
+            <p>
+                Timeless jewellery crafted with elegance,
+                designed to make every moment shine.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>QUICK LINKS</h3>
+
+            <a href="home.html">Home</a>
+
+            <a href="collections.html">
+                All Jewellery
+            </a>
+
+            <a href="rings.html">
+                Rings
+            </a>
+
+            <a href="necklaces.html">
+                Necklaces
+            </a>
+
+            <a href="bracelets.html">
+                Bracelets
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>CUSTOMER CARE</h3>
+
+            <a href="profile.html">
+                My Account
+            </a>
+
+            <a href="orders.html">
+                My Orders
+            </a>
+
+            <a href="#">
+                Shipping & Delivery
+            </a>
+
+            <a href="#">
+                Returns & Exchange
+            </a>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>CONTACT US</h3>
+
+            <p>
+                123 Jewellery Street<br>
+                Chennai, Tamil Nadu
+            </p>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+            <p>
+                support@luxeora.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Luxéora Jewels. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="js/collections.js"></script>
+
+<script src="js/common.js"></script>
+
+</body>
+
+</html>

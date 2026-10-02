@@ -1,0 +1,680 @@
+/* =====================================================
+   BASIC SETTINGS
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    background: #d3d3d3;
+
+    color: #333;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.top-header {
+
+    height: 70px;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+
+/* =====================================================
+   MENU BUTTON
+===================================================== */
+
+.menu-btn {
+
+    width: 55px;
+
+    height: 55px;
+
+    margin-left: 18px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    color: #432b27;
+
+}
+
+
+/* =====================================================
+   SEARCH BOX
+===================================================== */
+
+.search-box {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 350px;
+
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    height: 40px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 20px;
+
+    padding: 0 18px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+}
+
+
+.search-box input:focus {
+
+    border-color: #432b27;
+
+}
+
+
+/* =====================================================
+   ADMIN AREA
+===================================================== */
+
+.admin-area {
+
+    margin-left: auto;
+
+    margin-right: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+}
+
+
+.admin-name {
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #432b27;
+
+}
+
+
+.admin-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #eee3d1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
+
+}
+
+
+/* =====================================================
+   SIDE MENU
+===================================================== */
+
+.side-menu {
+
+    position: fixed;
+
+    top: 70px;
+
+    left: -280px;
+
+    width: 280px;
+
+    height: calc(100vh - 70px);
+
+    background: #432b27;
+
+    z-index: 999;
+
+    transition: left 0.3s ease;
+
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.side-menu.open {
+
+    left: 0;
+
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand {
+
+    color: #eee3d1;
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    padding: 30px 15px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+
+}
+
+
+/* =====================================================
+   SIDE MENU LINKS
+===================================================== */
+
+.side-menu nav {
+
+    padding-top: 20px;
+
+}
+
+
+.side-menu nav a {
+
+    display: block;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    padding: 16px 25px;
+
+    font-size: 16px;
+
+    transition: 0.2s ease;
+
+}
+
+
+.side-menu nav a:hover {
+
+    background: #eee3d1;
+
+    color: #432b27;
+
+}
+
+
+.side-menu nav a.active {
+
+    background: #eee3d1;
+
+    color: #432b27;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.main-content {
+
+    padding: 35px 40px 50px;
+
+}
+
+
+/* =====================================================
+   PAGE HEADING
+===================================================== */
+
+.page-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.page-heading h1 {
+
+    color: #432b27;
+
+    font-size: 30px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.page-heading p {
+
+    color: #666;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   TABLE SECTION
+===================================================== */
+
+.table-section {
+
+    width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    overflow-x: auto;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+}
+
+
+/* =====================================================
+   USER TABLE
+===================================================== */
+
+.users-table {
+
+    width: 100%;
+
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+    table-layout: auto;
+
+}
+
+
+/* =====================================================
+   TABLE HEADER
+===================================================== */
+
+.users-table thead {
+
+    background: #432b27;
+
+    color: #ffffff;
+
+}
+
+
+.users-table th {
+
+    padding: 17px 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   TABLE BODY
+===================================================== */
+
+.users-table td {
+
+    padding: 15px;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+
+}
+
+
+/* =====================================================
+   ROW HOVER
+===================================================== */
+
+.users-table tbody tr:hover {
+
+    background: #faf7f2;
+
+}
+
+
+.users-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+/* =====================================================
+   USER ICON
+===================================================== */
+
+.user-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #eee3d1;
+
+    color: #432b27;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 19px;
+
+    border: 1px solid #d8cbb8;
+
+}
+
+
+/* =====================================================
+   USER NAME
+===================================================== */
+
+.user-name {
+
+    font-weight: bold;
+
+    color: #432b27;
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   PHONE
+===================================================== */
+
+.phone-number {
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   EMAIL
+===================================================== */
+
+.email {
+
+    white-space: nowrap;
+
+}
+
+
+/* =====================================================
+   STATUS BUTTON
+===================================================== */
+
+.status-btn {
+
+    border: none;
+
+    min-width: 85px;
+
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+/* =====================================================
+   BLOCK BUTTON
+===================================================== */
+
+.status-btn.blocked {
+
+    background: #f8dede;
+
+    color: #9b3030;
+
+}
+
+
+/* =====================================================
+   UNBLOCK BUTTON
+===================================================== */
+
+.status-btn.unblocked {
+
+    background: #dff4e5;
+
+    color: #287044;
+
+}
+
+
+/* =====================================================
+   BUTTON HOVER
+===================================================== */
+
+.status-btn:hover {
+
+    transform: translateY(-1px);
+
+    opacity: 0.85;
+
+}
+
+
+/* =====================================================
+   ADMIN POPUP
+===================================================== */
+
+.admin-popup {
+
+    display: none;
+
+    position: fixed;
+
+    top: 62px;
+
+    right: 25px;
+
+    width: 210px;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+    z-index: 1500;
+
+    overflow: hidden;
+
+}
+
+
+.admin-popup.show {
+
+    display: block;
+
+}
+
+
+.admin-popup a {
+
+    display: block;
+
+    text-decoration: none;
+
+    color: #432b27;
+
+    padding: 13px 17px;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+
+.admin-popup a:hover {
+
+    background: #eee3d1;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .main-content {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .search-box {
+
+        width: 250px;
+
+    }
+
+
+    .admin-name {
+
+        display: none;
+
+    }
+
+
+    .page-heading h1 {
+
+        font-size: 25px;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .search-box {
+
+        display: none;
+
+    }
+
+
+    .menu-btn {
+
+        margin-left: 8px;
+
+    }
+
+
+    .admin-area {
+
+        margin-right: 15px;
+
+    }
+
+
+    .main-content {
+
+        padding: 20px 10px;
+
+    }
+
+}

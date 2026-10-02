@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Management | Luxéora</title>
+
+    <link rel="stylesheet" href="css/user-management.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="top-header">
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search users..."
+            >
+
+        </div>
+
+
+        <div class="admin-area" id="adminArea">
+
+            <span class="admin-name">
+                ADMIN
+            </span>
+
+            <span class="admin-icon">
+                👤
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= SIDE MENU ================= -->
+
+    <aside class="side-menu" id="sideMenu">
+
+
+        <div class="brand">
+            Luxéora
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="product-management.html">
+                Product Management
+            </a>
+
+            <a href="category-management.html">
+                Category Management
+            </a>
+
+            <a href="user-management.html" class="active">
+                User Management
+            </a>
+
+            <a href="orders-management.html">
+                Order Management
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="login.html" id="logoutLink">
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <div class="page-heading">
+
+            <div>
+
+                <h1>
+                    User Management
+                </h1>
+
+                <p>
+                    Manage registered users
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= USER TABLE ================= -->
+
+        <div class="table-section">
+
+
+            <table class="users-table">
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            No.
+                        </th>
+
+                        <th>
+                            User
+                        </th>
+
+                        <th>
+                            User Name
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Phone Number
+                        </th>
+
+                        <th>
+                            Email ID
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <tbody id="userTableBody">
+
+                    <!-- Users will be added using JavaScript -->
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ================= ADMIN POPUP ================= -->
+
+    <div class="admin-popup" id="adminPopup">
+
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+
+        <a href="profile.html">
+            Account Settings
+        </a>
+
+
+        <a href="profile.html">
+            Notifications
+        </a>
+
+
+        <a href="profile.html">
+            Security
+        </a>
+
+
+        <a href="#">
+            Help & Support
+        </a>
+
+
+        <a href="login.html" id="popupLogout">
+            Logout
+        </a>
+
+
+    </div>
+
+
+
+    <script src="js/user-management.js"></script>
+
+
+</body>
+
+</html>

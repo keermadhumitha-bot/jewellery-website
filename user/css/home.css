@@ -1,0 +1,1345 @@
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7eee3;
+    color: #432b27;
+}
+
+
+/* ================= HEADER ================= */
+
+.top-header {
+    height: 55px;
+
+    background: #432b27;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 18px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    width: 180px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.logo-symbol {
+    color: #c99a2e;
+
+    font-size: 22px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+.logo-text span {
+    color: #eee3d1;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+}
+
+.logo-text small {
+    color: #eee3d1;
+
+    font-size: 10px;
+
+    margin-top: 3px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+.main-navigation {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.main-navigation a {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 17px;
+
+    text-decoration: none;
+
+    color: #f3e8da;
+
+    font-size: 10px;
+
+    letter-spacing: 0.4px;
+
+    transition: background 0.3s ease;
+}
+
+.main-navigation a:hover,
+.main-navigation a.active {
+    background: #5a3b31;
+}
+
+
+/* ================= USER ICON ================= */
+
+.user-icon {
+    margin-left: auto;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    background: #f8f3eb;
+
+    border: 2px solid #17110f;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* HEAD */
+
+.user-head {
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    background: #17110f;
+
+    border-radius: 50%;
+
+    top: 5px;
+}
+
+
+/* BODY */
+
+.user-body {
+    position: absolute;
+
+    width: 16px;
+    height: 8px;
+
+    background: #17110f;
+
+    border-radius: 10px 10px 5px 5px;
+
+    bottom: 4px;
+}
+
+
+/* ================= HERO SECTION ================= */
+
+.hero-section {
+    width: 100%;
+
+    min-height: calc(100vh - 55px);
+
+    display: flex;
+
+    overflow: hidden;
+
+    background: #f7eee3;
+}
+
+
+/* ================= LEFT HERO ================= */
+
+.hero-content {
+    width: 47%;
+
+    min-height: calc(100vh - 55px);
+
+    padding-left: 6%;
+
+    padding-top: 145px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: flex-start;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #f8f0e5 0px,
+            #f8f0e5 45px,
+            #f1e5d6 45px,
+            #f1e5d6 70px
+        );
+}
+
+
+/* ================= HERO TITLE ================= */
+
+.hero-content h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(34px, 4vw, 52px);
+
+    line-height: 1.12;
+
+    font-weight: 500;
+
+    color: #432b27;
+
+    margin-bottom: 35px;
+}
+
+
+/* ================= HERO DESCRIPTION ================= */
+
+.hero-content p {
+    font-size: 17px;
+
+    line-height: 1.45;
+
+    color: #776862;
+
+    margin-left: 12px;
+
+    margin-bottom: 65px;
+}
+
+
+/* ================= DECORATIVE LINE ================= */
+
+.hero-line {
+    width: 155px;
+
+    height: 1px;
+
+    background: #c7a568;
+
+    margin-left: 0;
+
+    margin-bottom: 50px;
+}
+
+
+/* ================= SHOP BUTTON ================= */
+
+.shop-button {
+    text-decoration: none;
+
+    color: #17110f;
+
+    font-size: 20px;
+
+    letter-spacing: 0.5px;
+
+    margin-left: 12px;
+
+    transition: color 0.3s ease;
+}
+
+.shop-button:hover {
+    color: #8b641f;
+}
+
+
+/* ================= RIGHT IMAGE ================= */
+
+.hero-image {
+    width: 53%;
+    height: calc(100vh - 55px);
+    overflow: hidden;
+    background: #f7eee3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .logo {
+        width: 150px;
+    }
+
+    .main-navigation a {
+        padding: 0 9px;
+
+        font-size: 9px;
+    }
+
+    .hero-content {
+        padding-left: 5%;
+        padding-top: 100px;
+    }
+
+    .hero-content h1 {
+        font-size: 35px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+}
+
+/* =========================================================
+   EXCLUSIVE COLLECTIONS SECTION
+   ========================================================= */
+
+.collections-section {
+    width: 100%;
+
+    background: #f8f0e5;
+
+    padding: 18px 40px 28px;
+
+    text-align: center;
+
+    border-top: 1px solid #d8c8b5;
+}
+
+
+/* ================= COLLECTION TITLE ================= */
+
+.collections-section h2 {
+    margin: 0 0 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    color: #432b27;
+}
+
+
+/* ================= COLLECTION LIST ================= */
+
+.collection-list {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 70px;
+}
+
+
+/* ================= COLLECTION ITEM ================= */
+
+.collection-item {
+    text-decoration: none;
+
+    color: #17110f;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 120px;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ================= COLLECTION IMAGE ================= */
+
+.collection-image {
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: #e7d8c7;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+
+    border: 1px solid #d4c1aa;
+}
+
+
+.collection-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ================= COLLECTION NAME ================= */
+
+.collection-item span {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 11px;
+
+    color: #432b27;
+
+    white-space: nowrap;
+}
+
+
+/* ================= HOVER ================= */
+
+.collection-item:hover {
+    transform: translateY(-4px);
+}
+
+
+.collection-item:hover .collection-image {
+    border-color: #a27a3d;
+}
+
+
+/* ================= EXPLORE BUTTON ================= */
+
+.explore-button {
+    display: inline-block;
+
+    margin-top: 17px;
+
+    padding: 7px 17px;
+
+    background: #432b27;
+
+    color: #f8f0e5;
+
+    text-decoration: none;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 10px;
+
+    transition: background 0.3s ease;
+}
+
+
+.explore-button:hover {
+    background: #65453b;
+}
+
+
+/* =========================================================
+   COLLECTIONS RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .collections-section {
+        padding: 20px 15px 25px;
+    }
+
+    .collection-list {
+        gap: 15px;
+
+        flex-wrap: wrap;
+    }
+
+    .collection-item {
+        width: 70px;
+    }
+
+    .collection-image {
+        width: 55px;
+        height: 55px;
+    }
+
+}
+/* =========================================================
+   BEST SELLERS SECTION
+   ========================================================= */
+
+.best-sellers-section {
+    width: 100%;
+
+    background: #f8f0e5;
+
+    padding: 25px 40px 35px;
+
+    text-align: center;
+
+    border-top: 1px solid #d8c8b5;
+}
+
+
+/* ================= TITLE ================= */
+
+.best-sellers-section h2 {
+    margin: 0 0 22px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    color: #432b27;
+}
+
+
+/* ================= PRODUCT LIST ================= */
+
+.best-sellers-list {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 60px;
+}
+
+
+/* ================= PRODUCT CARD ================= */
+
+.product-card {
+    width: 260px;
+
+    background: #ffffff;
+
+    border: 1px solid #d8cec2;
+
+    text-align: left;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+.product-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(67, 43, 39, 0.15);
+}
+
+
+/* ================= PRODUCT IMAGE ================= */
+
+.product-image {
+    width: 100%;
+
+    height: 240px;
+
+    background: #f2eee9;
+
+    overflow: hidden;
+}
+
+
+.product-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ================= PRODUCT INFORMATION ================= */
+
+.product-info {
+    padding: 10px 11px 12px;
+}
+
+
+.product-info h3 {
+    margin: 0 0 6px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 1.3;
+
+    color: #432b27;
+}
+
+
+.product-info p {
+    margin: 0 0 12px;
+
+    font-size: 11px;
+
+    color: #786d67;
+
+    line-height: 1.4;
+}
+
+
+/* ================= PRODUCT BOTTOM ================= */
+
+.product-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.product-price {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #432b27;
+}
+
+
+/* ================= ADD BUTTON ================= */
+
+.add-cart-btn {
+    border: none;
+
+    background: #432b27;
+
+    color: #f8f0e5;
+
+    padding: 5px 9px;
+
+    font-size: 8px;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+}
+
+
+.add-cart-btn:hover {
+    background: #65453b;
+}
+
+
+/* =========================================================
+   BEST SELLERS RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .best-sellers-section {
+        padding: 25px 15px 30px;
+    }
+
+    .best-sellers-list {
+        gap: 15px;
+
+        flex-wrap: wrap;
+    }
+
+    .product-card {
+        width: 145px;
+    }
+
+    .product-image {
+        height: 135px;
+    }
+
+}
+/* =========================================================
+   OFFER SECTION
+   ========================================================= */
+
+.offer-section {
+    width: 100%;
+    min-height: 300px;
+    background: #432b27;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* ================= OFFER CONTENT ================= */
+
+.offer-content {
+    width: 55%;
+    padding-left: 8%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.offer-small-text {
+    margin: 0 0 10px;
+
+    color: #c9a86a;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+.offer-content h2 {
+    margin: 0 0 12px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    color: #f8f0e5;
+
+    text-transform: uppercase;
+}
+
+
+.offer-description {
+    margin: 0 0 25px;
+
+    color: #d9c9b8;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+.offer-button {
+    display: inline-block;
+
+    padding: 9px 22px;
+
+    background: #f8f0e5;
+
+    color: #432b27;
+
+    text-decoration: none;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 10px;
+
+    letter-spacing: 0.5px;
+
+    transition: background 0.3s ease,
+                color 0.3s ease;
+}
+
+
+.offer-button:hover {
+    background: #c9a86a;
+
+    color: #ffffff;
+}
+
+
+/* ================= OFFER IMAGE ================= */
+
+.offer-image {
+    width: 45%;
+
+    height: 300px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.offer-image img {
+    width: 240px;
+
+    height: 240px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 3px solid #c9a86a;
+}
+
+
+/* ================= OFFER RESPONSIVE ================= */
+
+@media (max-width: 700px) {
+
+    .offer-section {
+        flex-direction: column;
+
+        padding: 40px 20px;
+    }
+
+    .offer-content {
+        width: 100%;
+
+        padding-left: 0;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .offer-content h2 {
+        font-size: 32px;
+    }
+
+    .offer-image {
+        width: 100%;
+
+        height: 240px;
+
+        margin-top: 25px;
+    }
+
+    .offer-image img {
+        width: 180px;
+
+        height: 180px;
+    }
+
+}
+/* =========================================================
+   ABOUT US SECTION
+   ========================================================= */
+
+.about-section {
+    width: 100%;
+    min-height: 430px;
+    background: #f8f0e5;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* ================= ABOUT IMAGE ================= */
+
+.about-image {
+    width: 50%;
+    height: 430px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ================= ABOUT CONTENT ================= */
+
+.about-content {
+    width: 50%;
+    padding: 50px 8%;
+}
+
+.about-small-text {
+    margin: 0 0 12px;
+
+    color: #a27a3d;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.about-content h2 {
+    margin: 0 0 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    color: #432b27;
+}
+
+.about-description {
+    max-width: 450px;
+
+    margin: 0 0 14px;
+
+    color: #776862;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* ================= KNOW MORE BUTTON ================= */
+
+.about-button {
+    display: inline-block;
+
+    margin-top: 12px;
+    padding: 9px 20px;
+
+    background: #432b27;
+    color: #f8f0e5;
+
+    text-decoration: none;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+
+    transition: background 0.3s ease;
+}
+
+.about-button:hover {
+    background: #65453b;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .about-section {
+        flex-direction: column;
+    }
+
+    .about-image {
+        width: 100%;
+        height: 300px;
+    }
+
+    .about-content {
+        width: 100%;
+        padding: 40px 25px;
+        text-align: center;
+    }
+
+    .about-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+/* =========================================================
+   GET IN TOUCH SECTION
+   ========================================================= */
+
+.contact-section {
+    width: 100%;
+    background: #f1e5d6;
+    padding: 55px 8%;
+}
+
+
+/* ================= CONTACT HEADING ================= */
+
+.contact-heading {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.contact-small-text {
+    margin: 0 0 10px;
+    color: #a27a3d;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.contact-heading h2 {
+    margin: 0 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #432b27;
+}
+
+.contact-heading > p:last-child {
+    margin: 0;
+    color: #776862;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* ================= CONTACT CONTAINER ================= */
+
+.contact-container {
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+
+/* ================= CONTACT DETAILS ================= */
+
+.contact-details {
+    width: 40%;
+    padding-top: 5px;
+}
+
+.contact-item {
+    margin-bottom: 28px;
+}
+
+.contact-item h3 {
+    margin: 0 0 7px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #432b27;
+}
+
+.contact-item p {
+    margin: 0;
+    color: #776862;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* ================= CONTACT FORM ================= */
+
+.contact-form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* ================= FORM GROUP ================= */
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+/* ================= FORM LABEL ================= */
+
+.form-group label {
+    font-size: 11px;
+    color: #432b27;
+    font-weight: 500;
+}
+
+
+/* ================= REQUIRED STAR ================= */
+
+.required-star {
+    color: #b3261e;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ================= INPUTS ================= */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid #d3c2af;
+    background: #f8f0e5;
+    padding: 12px 13px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #432b27;
+    outline: none;
+}
+
+
+/* ================= INPUT FOCUS ================= */
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #a27a3d;
+}
+
+
+/* ================= TEXTAREA ================= */
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+
+/* ================= REQUIRED VALIDATION ================= */
+
+.contact-form input:invalid,
+.contact-form textarea:invalid {
+    box-shadow: none;
+}
+
+
+/* ================= SUBMIT BUTTON ================= */
+
+.contact-form button {
+    align-self: flex-start;
+    border: none;
+    background: #432b27;
+    color: #f8f0e5;
+    padding: 10px 22px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #65453b;
+}
+
+
+/* ================= CONTACT RESPONSIVE ================= */
+
+@media (max-width: 700px) {
+
+    .contact-section {
+        padding: 45px 20px;
+    }
+
+    .contact-heading h2 {
+        font-size: 27px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-details,
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-details {
+        text-align: center;
+    }
+
+    .contact-form button {
+        align-self: center;
+    }
+
+}
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer-section {
+    width: 100%;
+    background: #432b27;
+    color: #f8f0e5;
+}
+
+
+/* ================= FOOTER CONTAINER ================= */
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 55px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+
+/* ================= FOOTER COLUMNS ================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+}
+
+.footer-column h3 {
+    margin: 0 0 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+    color: #c9a86a;
+}
+
+
+/* ================= BRAND ================= */
+
+.footer-brand {
+    max-width: 260px;
+}
+
+.footer-brand h2 {
+    margin: 0 0 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 400;
+
+    color: #f8f0e5;
+}
+
+.footer-brand p {
+    margin: 0;
+
+    color: #d9c9b8;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* ================= FOOTER LINKS ================= */
+
+.footer-column a {
+    margin-bottom: 10px;
+
+    color: #d9c9b8;
+    text-decoration: none;
+
+    font-size: 11px;
+
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #c9a86a;
+}
+
+
+/* ================= CONTACT ================= */
+
+.footer-column p {
+    margin: 0 0 10px;
+
+    color: #d9c9b8;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* ================= FOOTER BOTTOM ================= */
+
+.footer-bottom {
+    width: 100%;
+
+    border-top: 1px solid #60453d;
+
+    text-align: center;
+    padding: 18px 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #bdaea3;
+    font-size: 10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .footer-container {
+        padding: 45px 25px;
+
+        flex-direction: column;
+        gap: 35px;
+
+        text-align: center;
+    }
+
+    .footer-column {
+        align-items: center;
+        min-width: 100%;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+
+    .footer-brand h2 {
+        font-size: 26px;
+    }
+
+}

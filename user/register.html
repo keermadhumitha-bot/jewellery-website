@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Account | Luxéora</title>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <link rel="stylesheet" href="css/register.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="main-header">
+
+        <div class="header-logo">
+
+            <a href="home.html">
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Luxéora"
+                    class="logo-ring"
+                >
+
+                <span class="logo-text">
+                    LUXÉORA
+                </span>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         REGISTER PAGE
+         ===================================================== -->
+
+    <main class="register-page">
+
+
+        <div class="register-container">
+
+
+            <!-- HEADING -->
+
+            <div class="register-heading">
+
+                <p class="register-small-text">
+                    JOIN LUXÉORA
+                </p>
+
+                <h1>
+                    Create Your Account
+                </h1>
+
+                <p>
+                    Create an account to enjoy a
+                    personalised shopping experience.
+                </p>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form id="registerForm">
+
+
+                <!-- =================================================
+                     PERSONAL INFORMATION
+                     ================================================= -->
+
+                <div class="form-section">
+
+                    <h2>
+                        Personal Information
+                    </h2>
+
+
+                    <div class="form-grid">
+
+
+                        <!-- NAME -->
+
+                        <div class="form-group">
+
+                            <label for="registerName">
+                                Full Name
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="registerName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- PHONE -->
+
+                        <div class="form-group">
+
+                            <label for="registerPhone">
+                                Phone Number
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="registerPhone"
+                                placeholder="Enter your phone number"
+                                maxlength="10"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group full-width">
+
+                            <label for="registerEmail">
+                                Email Address
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="registerEmail"
+                                placeholder="Enter your email address"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     PASSWORD
+                     ================================================= -->
+
+                <div class="form-section">
+
+                    <h2>
+                        Account Security
+                    </h2>
+
+
+                    <div class="form-grid">
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="form-group">
+
+                            <label for="registerPassword">
+                                Password
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                placeholder="Create a password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- CONFIRM PASSWORD -->
+
+                        <div class="form-group">
+
+                            <label for="confirmPassword">
+                                Confirm Password
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Confirm your password"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ADDRESS
+                     ================================================= -->
+
+                <div class="form-section">
+
+                    <h2>
+                        Delivery Address
+                    </h2>
+
+
+                    <div class="form-grid">
+
+
+                        <!-- ADDRESS -->
+
+                        <div class="form-group full-width">
+
+                            <label for="registerAddress">
+                                Address
+                                <span>*</span>
+                            </label>
+
+                            <textarea
+                                id="registerAddress"
+                                placeholder="House number, street, area"
+                                rows="3"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- CITY -->
+
+                        <div class="form-group">
+
+                            <label for="registerCity">
+                                City
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="registerCity"
+                                placeholder="Enter city"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- STATE -->
+
+                        <div class="form-group">
+
+                            <label for="registerState">
+                                State
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="registerState"
+                                placeholder="Enter state"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- PINCODE -->
+
+                        <div class="form-group">
+
+                            <label for="registerPincode">
+                                Pincode
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="registerPincode"
+                                placeholder="Enter pincode"
+                                maxlength="6"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     TERMS
+                     ================================================= -->
+
+                <div class="terms-section">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="termsCheckbox"
+                            required
+                        >
+
+                        <span>
+                            I agree to the Terms &
+                            Conditions and Privacy Policy.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- CREATE ACCOUNT -->
+
+                <button
+                    type="submit"
+                    class="register-button"
+                >
+                    CREATE ACCOUNT
+                </button>
+
+
+                <!-- LOGIN LINK -->
+
+                <div class="existing-account">
+
+                    <p>
+                        Already have an account?
+                    </p>
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="footer-section">
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Luxéora Jewels. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/register.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1149 @@
+/* =====================================================
+   BASIC
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    background: #d3d3d3;
+
+    color: #333;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.top-header {
+
+    height: 70px;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu-btn {
+
+    width: 55px;
+
+    height: 55px;
+
+    margin-left: 18px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #432b27;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-box {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 350px;
+
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    height: 40px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 20px;
+
+    padding: 0 18px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+}
+
+
+.search-box input:focus {
+
+    border-color: #432b27;
+
+}
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+.admin-area {
+
+    margin-left: auto;
+
+    margin-right: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+}
+
+
+.admin-name {
+
+    color: #432b27;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+
+.admin-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #eee3d1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
+
+}
+
+
+/* =====================================================
+   SIDE MENU
+===================================================== */
+
+.side-menu {
+
+    position: fixed;
+
+    top: 70px;
+
+    left: -280px;
+
+    width: 280px;
+
+    height: calc(100vh - 70px);
+
+    background: #432b27;
+
+    z-index: 999;
+
+    transition: left 0.3s ease;
+
+    box-shadow: 3px 0 12px rgba(0,0,0,0.2);
+
+}
+
+
+.side-menu.open {
+
+    left: 0;
+
+}
+
+
+.brand {
+
+    color: #eee3d1;
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    padding: 30px 15px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+
+}
+
+
+.side-menu nav {
+
+    padding-top: 20px;
+
+}
+
+
+.side-menu nav a {
+
+    display: block;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    padding: 16px 25px;
+
+    font-size: 16px;
+
+    transition: 0.2s ease;
+
+}
+
+
+.side-menu nav a:hover {
+
+    background: #eee3d1;
+
+    color: #432b27;
+
+}
+
+
+.side-menu nav a.active {
+
+    background: #eee3d1;
+
+    color: #432b27;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main-content {
+
+    padding: 35px 40px 50px;
+
+}
+
+
+.page-heading {
+
+    margin-bottom: 25px;
+
+}
+
+
+.page-heading h1 {
+
+    color: #432b27;
+
+    font-size: 30px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.page-heading p {
+
+    color: #666;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   PROFILE CARD
+===================================================== */
+
+.profile-card {
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   PROFILE TOP
+===================================================== */
+
+.profile-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 35px;
+
+    background: #faf7f2;
+
+    border-bottom: 1px solid #e5e5e5;
+
+}
+
+
+.profile-photo-area {
+
+    text-align: center;
+
+}
+
+
+.profile-photo {
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    background: #eee3d1;
+
+    border: 4px solid #ffffff;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 48px;
+
+    color: #432b27;
+
+    overflow: hidden;
+
+}
+
+
+.profile-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.change-photo-btn {
+
+    margin-top: 10px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #432b27;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+}
+
+
+.change-photo-btn:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =====================================================
+   PROFILE SUMMARY
+===================================================== */
+
+.profile-summary h2 {
+
+    color: #432b27;
+
+    font-size: 25px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.profile-summary p {
+
+    color: #777;
+
+    margin-bottom: 12px;
+
+}
+
+
+.account-status {
+
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    background: #dff4e5;
+
+    color: #287044;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   PROFILE SECTION
+===================================================== */
+
+.profile-section {
+
+    padding: 30px 35px;
+
+    border-bottom: 1px solid #e5e5e5;
+
+}
+
+
+.section-title {
+
+    margin-bottom: 22px;
+
+}
+
+
+.section-title h2 {
+
+    color: #432b27;
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.section-title p {
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.form-group label {
+
+    color: #432b27;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+}
+
+
+.form-group input,
+
+.form-group select {
+
+    height: 42px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    padding: 0 12px;
+
+    background: #f7f7f7;
+
+    color: #444;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    outline: none;
+
+}
+
+
+.form-group input:disabled,
+
+.form-group select:disabled {
+
+    cursor: not-allowed;
+
+    opacity: 0.8;
+
+}
+
+
+.form-group input:not(:disabled),
+
+.form-group select:not(:disabled) {
+
+    background: #ffffff;
+
+    border-color: #432b27;
+
+}
+
+
+/* =====================================================
+   ACCOUNT INFORMATION
+===================================================== */
+
+.account-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.account-item {
+
+    padding: 18px;
+
+    background: #f7f4ef;
+
+    border-radius: 7px;
+
+}
+
+
+.account-item span {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.account-item strong {
+
+    color: #432b27;
+
+    font-size: 14px;
+
+}
+
+
+.active-text {
+
+    color: #287044 !important;
+
+}
+
+
+/* =====================================================
+   SECURITY
+===================================================== */
+
+.security-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+
+.security-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.security-row h3 {
+
+    color: #432b27;
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.security-row p {
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.secondary-btn {
+
+    background: #ffffff;
+
+    color: #432b27;
+
+    border: 1px solid #432b27;
+
+    border-radius: 5px;
+
+    padding: 9px 15px;
+
+    cursor: pointer;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+}
+
+
+.secondary-btn:hover {
+
+    background: #432b27;
+
+    color: #ffffff;
+
+}
+
+
+.toggle-btn {
+
+    min-width: 65px;
+
+    padding: 8px 14px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #eee;
+
+    color: #777;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.toggle-btn.on {
+
+    background: #dff4e5;
+
+    color: #287044;
+
+}
+
+
+/* =====================================================
+   PROFILE ACTIONS
+===================================================== */
+
+.profile-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding: 25px 35px;
+
+}
+
+
+.profile-actions button {
+
+    padding: 10px 20px;
+
+    border-radius: 5px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    cursor: pointer;
+
+}
+
+
+.edit-btn {
+
+    background: #432b27;
+
+    color: #ffffff;
+
+    border: 1px solid #432b27;
+
+}
+
+
+.save-btn {
+
+    display: none;
+
+    background: #432b27;
+
+    color: #ffffff;
+
+    border: 1px solid #432b27;
+
+}
+
+
+.cancel-btn {
+
+    display: none;
+
+    background: #ffffff;
+
+    color: #432b27;
+
+    border: 1px solid #432b27;
+
+}
+
+
+.edit-btn:hover,
+
+.save-btn:hover {
+
+    background: #2f1d1a;
+
+}
+
+
+/* =====================================================
+   ADMIN POPUP
+===================================================== */
+
+.admin-popup {
+
+    display: none;
+
+    position: fixed;
+
+    top: 62px;
+
+    right: 25px;
+
+    width: 210px;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+    z-index: 1500;
+
+    overflow: hidden;
+
+}
+
+
+.admin-popup.show {
+
+    display: block;
+
+}
+
+
+.admin-popup a {
+
+    display: block;
+
+    padding: 13px 17px;
+
+    color: #432b27;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+
+.admin-popup a:hover {
+
+    background: #eee3d1;
+
+}
+
+
+/* =====================================================
+   PASSWORD MODAL
+===================================================== */
+
+.modal-overlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    backdrop-filter: blur(5px);
+
+    z-index: 2000;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+}
+
+
+.modal-overlay.show {
+
+    display: flex;
+
+}
+
+
+.password-modal {
+
+    width: 430px;
+
+    max-width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    position: relative;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+
+}
+
+
+.password-modal h2 {
+
+    color: #432b27;
+
+    margin-bottom: 7px;
+
+}
+
+
+.password-modal > p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.close-modal {
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #432b27;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+}
+
+
+.password-group {
+
+    margin-bottom: 15px;
+
+}
+
+
+.password-group label {
+
+    display: block;
+
+    color: #432b27;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+
+}
+
+
+.password-group input {
+
+    width: 100%;
+
+    height: 40px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+
+    padding: 0 10px;
+
+    outline: none;
+
+}
+
+
+.password-group input:focus {
+
+    border-color: #432b27;
+
+}
+
+
+.password-message {
+
+    min-height: 18px;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.update-password-btn {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #432b27;
+
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .main-content {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .search-box {
+
+        width: 250px;
+
+    }
+
+
+    .admin-name {
+
+        display: none;
+
+    }
+
+
+    .form-grid,
+
+    .account-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .profile-top {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .search-box {
+
+        display: none;
+
+    }
+
+
+    .main-content {
+
+        padding: 20px 10px;
+
+    }
+
+
+    .profile-section,
+
+    .profile-actions {
+
+        padding: 22px 18px;
+
+    }
+
+
+    .security-row {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .profile-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .profile-actions button {
+
+        width: 100%;
+
+    }
+
+}

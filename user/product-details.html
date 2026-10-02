@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Product Details | Luxéora</title>
+
+
+    <!-- COMMON CSS -->
+    <link
+        rel="stylesheet"
+        href="css/common.css"
+    >
+
+
+    <!-- PRODUCT DETAILS CSS -->
+    <link
+        rel="stylesheet"
+        href="css/product-details.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     COMMON HEADER
+     ========================================================= -->
+
+<header class="main-header">
+
+    <div class="header-logo">
+
+        <a href="home.html">
+
+            <img
+                src="assets/images/logo.png"
+                alt="Luxéora"
+                class="logo-ring"
+            >
+
+            <span class="logo-text">
+                LUXÉORA
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="header-search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Jewellery"
+        >
+
+        <button
+            type="button"
+            id="searchButton"
+        >
+            🔍
+        </button>
+
+    </div>
+
+
+    <!-- HEADER ACTIONS -->
+
+    <div class="header-actions">
+
+        <a
+            href="profile.html"
+            class="header-action"
+            title="Profile"
+        >
+            ♙
+        </a>
+
+
+        <a
+            href="wishlist.html"
+            class="header-action"
+            title="Wishlist"
+        >
+            ♡
+        </a>
+
+
+        <a
+            href="cart.html"
+            class="header-action"
+            title="Cart"
+        >
+            🛒
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     CATEGORY MENU
+     ========================================================= -->
+
+<nav class="category-nav">
+
+    <a href="home.html">
+        HOME
+    </a>
+
+    <a href="collections.html">
+        ALL JEWELLERY
+    </a>
+
+    <a href="rings.html">
+        RINGS
+    </a>
+
+    <a href="necklaces.html">
+        NECKLACES
+    </a>
+
+    <a href="bracelets.html">
+        BRACELETS
+    </a>
+
+    <a href="earrings.html">
+        EARRINGS
+    </a>
+
+    <a href="bangles.html">
+        BANGLES
+    </a>
+
+</nav>
+
+
+
+<!-- =========================================================
+     PRODUCT DETAILS
+     ========================================================= -->
+
+<main class="product-details-page">
+
+
+    <!-- =====================================================
+         MAIN PRODUCT
+         ===================================================== -->
+
+    <section class="product-main-section">
+
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="product-main-image">
+
+            <img
+                id="productImage"
+                src="assets/images/necklace1.jpg"
+                alt="Product"
+            >
+
+        </div>
+
+
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div class="product-information">
+
+
+            <p
+                class="product-type"
+                id="productType"
+            >
+                JEWELLERY
+            </p>
+
+
+            <h1 id="productName">
+                Product Name
+            </h1>
+
+
+
+            <!-- RATING -->
+
+            <div class="product-rating">
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <span
+                    class="rating-text"
+                    id="productRating"
+                >
+                    4.8
+                </span>
+
+            </div>
+
+
+
+            <!-- PRICE -->
+
+            <p
+                class="product-price"
+                id="productPrice"
+            >
+                ₹0
+            </p>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <p
+                class="product-description"
+                id="productDescription"
+            >
+                Elegant jewellery crafted to add timeless beauty
+                to every special occasion.
+            </p>
+
+
+
+            <!-- QUANTITY -->
+
+            <div class="quantity-section">
+
+                <label>
+                    Quantity
+                </label>
+
+
+                <div class="quantity-controls">
+
+                    <button
+                        type="button"
+                        id="decreaseQuantity"
+                    >
+                        −
+                    </button>
+
+
+                    <span id="quantityValue">
+                        1
+                    </span>
+
+
+                    <button
+                        type="button"
+                        id="increaseQuantity"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="product-actions">
+
+                <button
+                    type="button"
+                    class="add-cart-button"
+                    id="addToCartButton"
+                >
+                    ADD TO CART
+                </button>
+
+
+                <button
+                    type="button"
+                    class="wishlist-button"
+                    id="addToWishlistButton"
+                >
+                    ♡
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRODUCT SPECIFICATIONS
+         ===================================================== -->
+
+    <section class="product-specifications">
+
+
+        <div class="section-heading">
+
+            <p>
+                PRODUCT INFORMATION
+            </p>
+
+            <h2>
+                Product Details
+            </h2>
+
+        </div>
+
+
+
+        <div class="specifications-grid">
+
+
+            <div class="specification-item">
+
+                <span>
+                    Height
+                </span>
+
+                <strong id="productHeight">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="specification-item">
+
+                <span>
+                    Width
+                </span>
+
+                <strong id="productWidth">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="specification-item">
+
+                <span>
+                    Weight
+                </span>
+
+                <strong id="productWeight">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="specification-item">
+
+                <span>
+                    Size
+                </span>
+
+                <strong id="productSize">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="specification-item">
+
+                <span>
+                    Material
+                </span>
+
+                <strong id="productMaterial">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="specification-item">
+
+                <span>
+                    Metal
+                </span>
+
+                <strong id="productMetal">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="specification-item">
+
+                <span>
+                    Metal Purity
+                </span>
+
+                <strong id="productPurity">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="specification-item">
+
+                <span>
+                    Occasion
+                </span>
+
+                <strong id="productOccasion">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         REVIEWS
+         ===================================================== -->
+
+    <section class="reviews-section">
+
+
+        <div class="section-heading">
+
+            <p>
+                CUSTOMER FEEDBACK
+            </p>
+
+            <h2>
+                Customer Reviews
+            </h2>
+
+        </div>
+
+
+
+        <div class="reviews-container">
+
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <h3>
+                        Priya
+                    </h3>
+
+                    <span>
+                        ★★★★★
+                    </span>
+
+                </div>
+
+                <p>
+                    Beautiful design and excellent finishing.
+                    It looks even better in person.
+                </p>
+
+            </div>
+
+
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <h3>
+                        Ananya
+                    </h3>
+
+                    <span>
+                        ★★★★★
+                    </span>
+
+                </div>
+
+                <p>
+                    The jewellery is elegant and lightweight.
+                    Perfect for everyday wear.
+                </p>
+
+            </div>
+
+
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <h3>
+                        Meera
+                    </h3>
+
+                    <span>
+                        ★★★★☆
+                    </span>
+
+                </div>
+
+                <p>
+                    Loved the design and packaging.
+                    The product arrived safely and on time.
+                </p>
+
+            </div>
+
+
+
+            <div class="review-card">
+
+                <div class="review-top">
+
+                    <h3>
+                        Divya
+                    </h3>
+
+                    <span>
+                        ★★★★★
+                    </span>
+
+                </div>
+
+                <p>
+                    Very elegant and classy. The quality
+                    is really good for the price.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         YOU MAY ALSO LIKE
+         ===================================================== -->
+
+    <section class="recommendations-section">
+
+
+        <div class="section-heading">
+
+            <p>
+                EXPLORE MORE
+            </p>
+
+            <h2>
+                You May Also Like
+            </h2>
+
+        </div>
+
+
+        <div
+            class="recommendations-container"
+            id="recommendationsContainer"
+        >
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     COMMON FOOTER
+     ========================================================= -->
+
+<footer class="footer-section">
+
+    <div class="footer-container">
+
+
+        <div class="footer-column footer-brand">
+
+            <h2>
+                Luxéora
+            </h2>
+
+            <p>
+                Timeless jewellery crafted with elegance,
+                designed to make every moment shine.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                QUICK LINKS
+            </h3>
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="collections.html">
+                All Jewellery
+            </a>
+
+            <a href="rings.html">
+                Rings
+            </a>
+
+            <a href="necklaces.html">
+                Necklaces
+            </a>
+
+            <a href="bracelets.html">
+                Bracelets
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                CUSTOMER CARE
+            </h3>
+
+            <a href="profile.html">
+                My Account
+            </a>
+
+            <a href="orders.html">
+                My Orders
+            </a>
+
+            <a href="#">
+                Shipping & Delivery
+            </a>
+
+            <a href="#">
+                Returns & Exchange
+            </a>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                CONTACT US
+            </h3>
+
+            <p>
+                123 Jewellery Street<br>
+                Chennai, Tamil Nadu
+            </p>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+            <p>
+                support@luxeora.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Luxéora Jewels. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- COMMON JS -->
+
+<script src="js/common.js"></script>
+
+
+<!-- PRODUCT DETAILS JS -->
+
+<script src="js/product-details.js"></script>
+
+
+</body>
+
+</html>

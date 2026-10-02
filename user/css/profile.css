@@ -1,0 +1,749 @@
+/* =====================================================
+   PROFILE PAGE
+===================================================== */
+
+.profile-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #f8f0e5;
+    padding: 55px 7% 80px;
+}
+
+
+/* =====================================================
+   PAGE HEADING
+===================================================== */
+
+.profile-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-small-text {
+    margin: 0 0 10px;
+    color: #a27a3d;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.profile-heading h1 {
+    margin: 0 0 12px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 38px;
+    font-weight: 400;
+    color: #432b27;
+}
+
+.profile-heading > p:last-child {
+    margin: 0;
+    color: #776862;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   PROFILE OVERVIEW
+===================================================== */
+
+.profile-overview {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 30px;
+
+    padding: 25px 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5d8ca;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   ROUND PROFILE IMAGE
+===================================================== */
+
+.profile-avatar {
+    width: 75px;
+    height: 75px;
+
+    min-width: 75px;
+
+    border-radius: 50%;
+
+    background: #432b27;
+
+    border: 2px solid #c9a86a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-avatar span {
+    color: #f8f0e5;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 28px;
+}
+
+
+/* =====================================================
+   OVERVIEW INFORMATION
+===================================================== */
+
+.profile-overview-info {
+    flex: 1;
+}
+
+.profile-overview-info h2 {
+    margin: 0 0 7px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+    font-weight: 400;
+
+    color: #432b27;
+}
+
+.profile-overview-info p {
+    margin: 3px 0;
+
+    color: #776862;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   EDIT PROFILE BUTTON
+===================================================== */
+
+.edit-profile-button {
+    padding: 10px 18px;
+
+    background: #432b27;
+    color: #f8f0e5;
+
+    border: none;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.edit-profile-button:hover {
+    background: #c9a86a;
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   PROFILE GRID
+===================================================== */
+
+.profile-grid {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =====================================================
+   PROFILE CARD
+===================================================== */
+
+.profile-card {
+    background: #ffffff;
+
+    border: 1px solid #e5d8ca;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CARD HEADING
+===================================================== */
+
+.card-heading {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #eee2d7;
+}
+
+.card-small-title {
+    margin: 0 0 5px;
+
+    color: #a27a3d;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+.card-heading h2 {
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    color: #432b27;
+}
+
+.card-icon {
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.profile-form-group {
+    margin-bottom: 17px;
+}
+
+.profile-form-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.profile-form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #432b27;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.profile-form-group input,
+.profile-form-group textarea,
+.profile-form-group select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    border: 1px solid #ddcfc0;
+
+    background: #fffdf9;
+
+    color: #432b27;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    outline: none;
+
+    transition:
+        border 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.profile-form-group textarea {
+    resize: vertical;
+}
+
+.profile-form-group input:focus,
+.profile-form-group textarea:focus,
+.profile-form-group select:focus {
+    border-color: #c9a86a;
+
+    box-shadow:
+        0 0 0 2px rgba(201, 168, 106, 0.12);
+}
+
+.profile-form-group small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #998b83;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   SAVE BUTTON
+===================================================== */
+
+.save-button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    background: #432b27;
+
+    color: #f8f0e5;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease;
+}
+
+.save-button:hover {
+    background: #c9a86a;
+}
+
+
+/* =====================================================
+   PAYMENT METHODS
+===================================================== */
+
+.payment-method {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee2d7;
+}
+
+.payment-method:first-child {
+    padding-top: 0;
+}
+
+.payment-method-icon {
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+
+    background: #f8f0e5;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+}
+
+.payment-method-details {
+    flex: 1;
+}
+
+.payment-method-details h3 {
+    margin: 0 0 5px;
+
+    color: #432b27;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.payment-method-details p {
+    margin: 0;
+
+    color: #776862;
+
+    font-size: 10px;
+}
+
+.default-payment {
+    padding: 5px 8px;
+
+    background: #eee3d5;
+
+    color: #8b6938;
+
+    font-size: 8px;
+
+    letter-spacing: 0.5px;
+}
+
+.remove-payment {
+    background: none;
+
+    border: none;
+
+    color: #a27a3d;
+
+    font-size: 9px;
+
+    cursor: pointer;
+}
+
+.remove-payment:hover {
+    color: #432b27;
+}
+
+
+/* =====================================================
+   ADD PAYMENT
+===================================================== */
+
+.add-payment-button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 11px;
+
+    background: transparent;
+
+    border: 1px solid #432b27;
+
+    color: #432b27;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.add-payment-button:hover {
+    background: #432b27;
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   PREVIOUS ORDERS
+===================================================== */
+
+.order-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #eee2d7;
+}
+
+.order-image {
+    width: 55px;
+    height: 55px;
+
+    min-width: 55px;
+
+    background: #f8f0e5;
+
+    overflow: hidden;
+}
+
+.order-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.order-info {
+    flex: 1;
+}
+
+.order-info h3 {
+    margin: 0 0 5px;
+
+    color: #432b27;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.order-info p {
+    margin: 3px 0;
+
+    color: #776862;
+
+    font-size: 9px;
+}
+
+.order-status {
+    padding: 5px 8px;
+
+    background: #eee3d5;
+
+    color: #765b32;
+
+    font-size: 8px;
+
+    white-space: nowrap;
+}
+
+.view-orders-button {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin-top: 20px;
+
+    padding: 11px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    background: #432b27;
+
+    color: #f8f0e5;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+.view-orders-button:hover {
+    background: #c9a86a;
+}
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+.settings-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid #eee2d7;
+}
+
+.settings-item:last-child {
+    border-bottom: none;
+}
+
+.settings-item h3 {
+    margin: 0 0 5px;
+
+    color: #432b27;
+
+    font-size: 12px;
+}
+
+.settings-item p {
+    margin: 0;
+
+    color: #776862;
+
+    font-size: 9px;
+}
+
+.settings-item button {
+    padding: 8px 13px;
+
+    background: transparent;
+
+    border: 1px solid #432b27;
+
+    color: #432b27;
+
+    font-size: 9px;
+
+    cursor: pointer;
+}
+
+.settings-item button:hover {
+    background: #432b27;
+    color: #ffffff;
+}
+
+.logout-item button {
+    border-color: #a27a3d;
+    color: #a27a3d;
+}
+
+
+/* =====================================================
+   EMPTY ORDERS
+===================================================== */
+
+.no-orders {
+    text-align: center;
+
+    padding: 20px 0;
+
+    color: #776862;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .profile-page {
+        padding: 40px 20px 60px;
+    }
+
+
+    .profile-heading h1 {
+        font-size: 30px;
+    }
+
+
+    .profile-overview {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 25px 20px;
+    }
+
+
+    .profile-overview-info {
+        width: 100%;
+    }
+
+
+    .edit-profile-button {
+        width: 100%;
+    }
+
+
+    .profile-card {
+        padding: 20px;
+    }
+
+
+    .profile-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+
+    .card-heading h2 {
+        font-size: 19px;
+    }
+
+
+    .order-item {
+        align-items: flex-start;
+    }
+
+
+    .order-status {
+        display: none;
+    }
+
+}

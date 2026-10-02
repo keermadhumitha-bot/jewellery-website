@@ -1,0 +1,710 @@
+/* =====================================================
+   BASIC SETTINGS
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #d3d3d3;
+    color: #333;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.top-header {
+    height: 70px;
+    width: 100%;
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* MENU BUTTON */
+
+.menu-btn {
+    width: 55px;
+    height: 55px;
+
+    margin-left: 18px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    color: #432b27;
+}
+
+
+/* SEARCH */
+
+.search-box {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 350px;
+}
+
+.search-box input {
+    width: 100%;
+
+    height: 40px;
+
+    border: 1px solid #ccc;
+    border-radius: 20px;
+
+    padding: 0 18px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.search-box input:focus {
+    border-color: #432b27;
+}
+
+
+/* ADMIN */
+
+.admin-area {
+    margin-left: auto;
+
+    margin-right: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+}
+
+.admin-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #432b27;
+}
+
+.admin-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #eee3d1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   SIDE MENU
+===================================================== */
+
+.side-menu {
+    position: fixed;
+
+    top: 70px;
+    left: -280px;
+
+    width: 280px;
+    height: calc(100vh - 70px);
+
+    background: #432b27;
+
+    z-index: 999;
+
+    transition: left 0.3s ease;
+
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+
+/* BRAND */
+
+.brand {
+    color: #eee3d1;
+
+    font-size: 27px;
+    font-weight: bold;
+
+    text-align: center;
+
+    padding: 30px 15px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+
+/* MENU LINKS */
+
+.side-menu nav {
+    padding-top: 20px;
+}
+
+.side-menu nav a {
+    display: block;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    padding: 16px 25px;
+
+    font-size: 16px;
+
+    transition: 0.2s ease;
+}
+
+.side-menu nav a:hover {
+    background: #eee3d1;
+    color: #432b27;
+}
+
+.side-menu nav a.active {
+    background: #eee3d1;
+    color: #432b27;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.main-content {
+    padding: 35px 40px 50px;
+}
+
+
+/* PAGE HEADING */
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.page-heading h1 {
+    color: #432b27;
+
+    font-size: 30px;
+
+    margin-bottom: 7px;
+}
+
+.page-heading p {
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-section {
+    width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    overflow-x: auto;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+/* IMPORTANT:
+   Do NOT use display:flex/grid on table
+*/
+
+.orders-table {
+    width: 100%;
+
+    min-width: 1150px;
+
+    border-collapse: collapse;
+
+    table-layout: auto;
+}
+
+
+/* TABLE HEADER */
+
+.orders-table thead {
+    background: #432b27;
+
+    color: #ffffff;
+}
+
+.orders-table th {
+    padding: 17px 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* TABLE BODY */
+
+.orders-table td {
+    padding: 17px 15px;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+
+/* HOVER */
+
+.orders-table tbody tr:hover {
+    background: #faf7f2;
+}
+
+
+/* LAST ROW */
+
+.orders-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ORDER ID */
+
+.order-id {
+    color: #432b27;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* CUSTOMER */
+
+.customer-name {
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* PRODUCT NAME */
+
+.product-name {
+    min-width: 220px;
+
+    line-height: 1.5;
+}
+
+
+/* AMOUNT */
+
+.amount {
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* PENDING */
+
+.status.pending {
+    background: #fff1c7;
+
+    color: #8a6500;
+}
+
+
+/* SHIPPED */
+
+.status.shipped {
+    background: #dbeafe;
+
+    color: #24558a;
+}
+
+
+/* DELIVERED */
+
+.status.delivered {
+    background: #dff4e5;
+
+    color: #287044;
+}
+
+
+/* CANCELLED */
+
+.status.cancelled {
+    background: #f8dede;
+
+    color: #9b3030;
+}
+
+
+/* RETURNED */
+
+.status.returned {
+    background: #eadcf5;
+
+    color: #70409b;
+}
+
+
+/* =====================================================
+   VIEW BUTTON
+===================================================== */
+
+.view-btn {
+    background: #432b27;
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 8px 18px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.view-btn:hover {
+    background: #2f1d1a;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal-overlay {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    backdrop-filter: blur(5px);
+
+    z-index: 2000;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+
+/* RECEIPT */
+
+.order-receipt {
+    width: 500px;
+
+    max-width: 100%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    position: relative;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+}
+
+.order-receipt h2 {
+    text-align: center;
+
+    color: #432b27;
+
+    margin-bottom: 25px;
+
+    font-size: 25px;
+}
+
+
+/* CLOSE */
+
+.close-btn {
+    position: absolute;
+
+    right: 15px;
+    top: 12px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    color: #432b27;
+
+    cursor: pointer;
+}
+
+
+/* RECEIPT LINE */
+
+.receipt-line {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.receipt-line span {
+    color: #777;
+}
+
+.receipt-line strong {
+    color: #432b27;
+
+    text-align: right;
+}
+
+
+/* PRODUCTS */
+
+.product-details {
+    margin-top: 25px;
+}
+
+.product-details h3 {
+    color: #432b27;
+
+    margin-bottom: 12px;
+}
+
+.receipt-product {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 12px;
+
+    background: #f7f4ef;
+
+    border-radius: 6px;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+}
+
+.receipt-product-name {
+    flex: 1;
+}
+
+.receipt-product-price {
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* TOTAL */
+
+.receipt-total {
+    margin-top: 20px;
+
+    padding-top: 18px;
+
+    border-top: 2px solid #432b27;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 18px;
+}
+
+.receipt-total strong {
+    color: #432b27;
+}
+
+
+/* =====================================================
+   ADMIN POPUP
+===================================================== */
+
+.admin-popup {
+    display: none;
+
+    position: fixed;
+
+    top: 62px;
+
+    right: 25px;
+
+    width: 210px;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+    z-index: 1500;
+
+    overflow: hidden;
+}
+
+.admin-popup.show {
+    display: block;
+}
+
+.admin-popup a {
+    display: block;
+
+    text-decoration: none;
+
+    color: #432b27;
+
+    padding: 13px 17px;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.admin-popup a:hover {
+    background: #eee3d1;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .main-content {
+        padding: 25px 15px;
+    }
+
+    .search-box {
+        width: 250px;
+    }
+
+    .admin-name {
+        display: none;
+    }
+
+    .page-heading h1 {
+        font-size: 25px;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .search-box {
+        display: none;
+    }
+
+    .menu-btn {
+        margin-left: 8px;
+    }
+
+    .admin-area {
+        margin-right: 15px;
+    }
+
+    .main-content {
+        padding: 20px 10px;
+    }
+
+}

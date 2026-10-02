@@ -1,0 +1,323 @@
+/* =========================================================
+   LUXÉORA REGISTER PAGE
+   ========================================================= */
+
+.register-page {
+    width: 100%;
+
+    min-height: calc(100vh - 80px);
+
+    background: #f8f0e5;
+
+    padding: 55px 20px;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.register-container {
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    padding: 50px 65px;
+
+    box-shadow:
+        0 8px 30px rgba(67, 43, 39, 0.10);
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.register-heading {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.register-small-text {
+    margin: 0 0 8px;
+
+    color: #a27a3d;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.register-heading h1 {
+    margin: 0 0 10px;
+
+    color: #432b27;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+}
+
+.register-heading > p:last-child {
+    margin: 0;
+
+    color: #776862;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+#registerForm {
+    width: 100%;
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.form-section {
+    margin-bottom: 35px;
+
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid #eee3d8;
+}
+
+.form-section h2 {
+    margin: 0 0 22px;
+
+    color: #432b27;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 20px;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.form-group label {
+    color: #432b27;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+.form-group label span {
+    color: #b3261e;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid #d3c2af;
+
+    background: #fdfaf6;
+
+    color: #432b27;
+
+    padding: 12px 13px;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+}
+
+.form-group input {
+    height: 44px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #a27a3d;
+}
+
+
+/* =========================================================
+   TERMS
+   ========================================================= */
+
+.terms-section {
+    margin-bottom: 25px;
+}
+
+.terms-section label {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    color: #776862;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+.terms-section input {
+    margin-top: 2px;
+
+    accent-color: #432b27;
+}
+
+
+/* =========================================================
+   REGISTER BUTTON
+   ========================================================= */
+
+.register-button {
+    width: 100%;
+
+    height: 46px;
+
+    border: none;
+
+    background: #432b27;
+
+    color: #f8f0e5;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+}
+
+.register-button:hover {
+    background: #65453b;
+}
+
+
+/* =========================================================
+   EXISTING ACCOUNT
+   ========================================================= */
+
+.existing-account {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 22px;
+}
+
+.existing-account p {
+    margin: 0;
+
+    color: #776862;
+
+    font-size: 10px;
+}
+
+.existing-account a {
+    color: #a27a3d;
+
+    font-size: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.existing-account a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .register-page {
+        padding: 35px 15px;
+    }
+
+    .register-container {
+        padding: 40px 25px;
+    }
+
+    .register-heading h1 {
+        font-size: 28px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 17px;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+}

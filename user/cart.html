@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cart | Luxéora Jewels</title>
+
+    <link
+        rel="stylesheet"
+        href="css/common.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/cart.css"
+    >
+
+</head>
+
+<body>
+
+
+<!-- COMMON HEADER -->
+
+<header class="main-header">
+
+    <div class="header-logo">
+
+        <a href="home.html">
+
+            <img
+                src="assets/images/logo.png"
+                alt="Luxéora"
+                class="logo-ring"
+            >
+
+            <span class="logo-text">
+                LUXÉORA
+            </span>
+
+        </a>
+
+    </div>
+
+    <div class="header-search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Jewellery"
+        >
+
+        <button type="button">
+            🔍
+        </button>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <a
+            href="profile.html"
+            class="header-action"
+            title="Profile"
+        >
+            ♙
+        </a>
+
+        <a
+            href="wishlist.html"
+            class="header-action"
+            title="Wishlist"
+        >
+            ♡
+        </a>
+
+        <a
+            href="cart.html"
+            class="header-action"
+            title="Cart"
+        >
+            🛒
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="category-nav">
+     <a href="home.html">
+                HOME
+            </a>
+
+    <a href="collections.html">
+        ALL JEWELLERY
+    </a>
+
+    <a href="rings.html">
+        RINGS
+    </a>
+
+    <a href="necklaces.html">
+        NECKLACES
+    </a>
+
+    <a href="bracelets.html">
+        BRACELETS
+    </a>
+
+    <a href="earrings.html">
+        EARRINGS
+    </a>
+
+    <a href="bangles.html">
+        BANGLES
+    </a>
+
+</nav>
+
+
+<!-- =========================================================
+     CART
+     ========================================================= -->
+
+<main class="cart-page">
+
+    <div class="cart-heading">
+
+        <p>
+            YOUR SHOPPING BAG
+        </p>
+
+        <h1>
+            Shopping Cart
+        </h1>
+
+    </div>
+
+
+    <div class="cart-layout">
+
+
+        <!-- CART ITEMS -->
+
+        <section
+            class="cart-items"
+            id="cartItems"
+        ></section>
+
+
+        <!-- ORDER SUMMARY -->
+
+        <aside class="cart-summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="cartSubtotal">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery
+                </span>
+
+                <span>
+                    FREE
+                </span>
+
+            </div>
+
+
+            <div class="summary-total">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="cartTotal">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="checkout-button"
+            >
+                PROCEED TO CHECKOUT
+            </button>
+
+        </aside>
+
+    </div>
+
+
+    <!-- EMPTY CART -->
+
+    <div
+        class="empty-cart"
+        id="emptyCart"
+    >
+
+        <h2>
+            Your Cart Is Empty
+        </h2>
+
+        <p>
+            Looks like you haven't added any jewellery yet.
+        </p>
+
+        <a href="collections.html">
+            CONTINUE SHOPPING
+        </a>
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="footer-section">
+
+    <div class="footer-container">
+
+        <div class="footer-column footer-brand">
+
+            <h2>
+                Luxéora
+            </h2>
+
+            <p>
+                Timeless jewellery crafted with elegance,
+                designed to make every moment shine.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                QUICK LINKS
+            </h3>
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="collections.html">
+                All Jewellery
+            </a>
+
+            <a href="rings.html">
+                Rings
+            </a>
+
+            <a href="necklaces.html">
+                Necklaces
+            </a>
+
+            <a href="bracelets.html">
+                Bracelets
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                CUSTOMER CARE
+            </h3>
+
+            <a href="profile.html">
+                My Account
+            </a>
+
+            <a href="cart.html">
+                My Cart
+            </a>
+
+            <a href="#">
+                Shipping & Delivery
+            </a>
+
+            <a href="#">
+                Returns & Exchange
+            </a>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                CONTACT US
+            </h3>
+
+            <p>
+                123 Jewellery Street<br>
+                Chennai, Tamil Nadu
+            </p>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+            <p>
+                support@luxeora.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Luxéora Jewels. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="js/cart.js"></script>
+
+<script src="js/common.js"></script>
+
+</body>
+
+</html>

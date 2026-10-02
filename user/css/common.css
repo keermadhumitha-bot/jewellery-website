@@ -1,0 +1,458 @@
+/* =========================================================
+   COMMON WEBSITE STYLES
+   HEADER + NAVIGATION + FOOTER
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #432b27;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.main-header {
+    width: 100%;
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   LUXÉORA LOGO
+   ========================================================= */
+
+.header-logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.header-logo a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #432b27;
+}
+
+/* Ring beside logo */
+
+.logo-ring {
+    width: 34px;
+    height: 34px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+.logo-text {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    color: #432b27;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.header-search {
+    width: 390px;
+    height: 44px;
+
+    border: 1px solid #999;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #ffffff;
+}
+
+.header-search input {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    padding: 0 15px;
+
+    font-size: 13px;
+
+    color: #432b27;
+
+    background: #ffffff;
+}
+
+.header-search input::placeholder {
+    color: #999;
+}
+
+.header-search button {
+    width: 45px;
+    height: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    color: #432b27;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+   PROFILE + WISHLIST + CART
+   ========================================================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    flex-shrink: 0;
+}
+
+
+/* Every header icon */
+
+.header-action {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    color: #432b27;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Hover effect */
+
+.header-action:hover {
+    color: #a27a3d;
+}
+
+
+/* Make the heart clearly visible */
+
+.header-action[title="Wishlist"] {
+    font-size: 25px;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+/* Cart icon */
+
+.header-action[title="Cart"] {
+    font-size: 20px;
+}
+
+
+/* Profile icon */
+
+.header-action[title="Profile"] {
+    font-size: 21px;
+}
+
+
+/* =========================================================
+   CATEGORY MENU
+   ========================================================= */
+
+.category-nav {
+    width: 100%;
+    min-height: 44px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 55px;
+
+    background: #f4e4d2;
+
+    border-bottom: 1px solid #e1d2c2;
+}
+
+.category-nav a {
+    color: #432b27;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    transition: color 0.3s ease;
+}
+
+.category-nav a:hover {
+    color: #a27a3d;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer-section {
+    width: 100%;
+
+    background: #432b27;
+
+    color: #f8f0e5;
+}
+
+.footer-container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 55px 8%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 150px;
+}
+
+.footer-column h3 {
+    margin: 0 0 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+
+    color: #c9a86a;
+}
+
+.footer-brand {
+    max-width: 260px;
+}
+
+.footer-brand h2 {
+    margin: 0 0 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    color: #f8f0e5;
+}
+
+.footer-brand p {
+    margin: 0;
+
+    color: #d9c9b8;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+.footer-column a {
+    margin-bottom: 10px;
+
+    color: #d9c9b8;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #c9a86a;
+}
+
+.footer-column p {
+    margin: 0 0 10px;
+
+    color: #d9c9b8;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    width: 100%;
+
+    border-top: 1px solid #60453d;
+
+    text-align: center;
+
+    padding: 18px 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #bdaea3;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .main-header {
+        padding: 0 25px;
+    }
+
+    .header-search {
+        width: 300px;
+    }
+
+    .category-nav {
+        gap: 25px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .main-header {
+        padding: 18px 20px;
+
+        flex-wrap: wrap;
+
+        gap: 18px;
+    }
+
+    .header-logo {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .header-search {
+        width: 100%;
+    }
+
+    .header-actions {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 25px;
+    }
+
+    .header-action {
+        width: 32px;
+        height: 32px;
+
+        font-size: 22px;
+    }
+
+    .header-action[title="Wishlist"] {
+        font-size: 27px;
+    }
+
+    .category-nav {
+        justify-content: flex-start;
+
+        padding: 15px 20px;
+
+        overflow-x: auto;
+
+        gap: 28px;
+
+        white-space: nowrap;
+    }
+
+    .footer-container {
+        padding: 45px 25px;
+
+        flex-direction: column;
+
+        gap: 35px;
+
+        text-align: center;
+    }
+
+    .footer-column {
+        align-items: center;
+
+        min-width: 100%;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+
+}

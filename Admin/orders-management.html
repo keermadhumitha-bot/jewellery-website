@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Management | Luxéora</title>
+
+    <link rel="stylesheet" href="css/orders-management.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="top-header">
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search orders..."
+            >
+        </div>
+
+        <div class="admin-area" id="adminArea">
+            <span class="admin-name">ADMIN</span>
+            <span class="admin-icon">👤</span>
+        </div>
+
+    </header>
+
+
+    <!-- ================= SIDE MENU ================= -->
+    <aside class="side-menu" id="sideMenu">
+
+        <div class="brand">
+            Luxéora
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="product-management.html">
+                Product Management
+            </a>
+
+            <a href="category-management.html">
+                Category Management
+            </a>
+
+            <a href="user-management.html">
+                User Management
+            </a>
+
+            <a href="orders-management.html" class="active">
+                Order Management
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="login.html" id="logoutLink">
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <div class="page-heading">
+
+            <div>
+                <h1>Order Management</h1>
+                <p>Manage and view customer orders</p>
+            </div>
+
+        </div>
+
+
+        <!-- ================= ORDER TABLE ================= -->
+
+        <div class="table-section">
+
+            <table class="orders-table">
+
+                <thead>
+
+                    <tr>
+                        <th>No.</th>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Order Name</th>
+                        <th>Date of Purchase</th>
+                        <th>Amount</th>
+                        <th>Payment Method</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="orderTableBody">
+                    <!-- Orders generated using JavaScript -->
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= ORDER DETAILS MODAL ================= -->
+
+    <div class="modal-overlay" id="orderModal">
+
+        <div class="order-receipt">
+
+            <button class="close-btn" id="closeModal">
+                ×
+            </button>
+
+            <h2>Order Details</h2>
+
+            <div class="receipt-line">
+                <span>Order ID</span>
+                <strong id="receiptOrderId"></strong>
+            </div>
+
+            <div class="receipt-line">
+                <span>Customer</span>
+                <strong id="receiptCustomer"></strong>
+            </div>
+
+            <div class="receipt-line">
+                <span>Date of Purchase</span>
+                <strong id="receiptDate"></strong>
+            </div>
+
+            <div class="receipt-line">
+                <span>Payment Method</span>
+                <strong id="receiptPayment"></strong>
+            </div>
+
+            <div class="receipt-line">
+                <span>Status</span>
+                <strong id="receiptStatus"></strong>
+            </div>
+
+
+            <div class="product-details">
+
+                <h3>Products</h3>
+
+                <div id="receiptProducts"></div>
+
+            </div>
+
+
+            <div class="receipt-total">
+
+                <span>Total Amount</span>
+
+                <strong id="receiptTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ADMIN POPUP ================= -->
+
+    <div class="admin-popup" id="adminPopup">
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+        <a href="profile.html">
+            Account Settings
+        </a>
+
+        <a href="profile.html">
+            Notifications
+        </a>
+
+        <a href="profile.html">
+            Security
+        </a>
+
+        <a href="#">
+            Help & Support
+        </a>
+
+        <a href="login.html" id="popupLogout">
+            Logout
+        </a>
+
+    </div>
+
+
+    <script src="js/orders-management.js"></script>
+
+</body>
+</html>

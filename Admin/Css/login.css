@@ -1,0 +1,356 @@
+/* =========================================
+   LOGIN PAGE
+   Jewellery Admin
+========================================= */
+
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: #310708;
+    color: #000;
+}
+
+
+/* =========================================
+   MAIN LOGIN PAGE
+========================================= */
+
+.login-page {
+    width: 95%;
+    max-width: 1250px;
+    min-height: 540px;
+    border-radius: 45px;
+
+    margin: 7vh auto;
+
+    display: flex;
+
+    background-color: #760707;
+}
+
+
+/* =========================================
+   LEFT IMAGE
+========================================= */
+
+.login-image {
+    width: 53%;
+
+    min-height: 540px;
+
+    overflow: hidden;
+}
+
+
+.login-image img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 540px;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* =========================================
+   RIGHT LOGIN SECTION
+========================================= */
+
+.login-section {
+    width: 47%;
+
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #760707;
+}
+
+
+/* =========================================
+   LOGIN BOX
+========================================= */
+
+.login-box {
+    width: 98%;
+    height: 600px;
+
+    padding: 52px 45px;
+
+    background-color: #bd9d7b;
+
+    border-radius: 45px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.login-box h1 {
+    margin-bottom: 34px;
+
+    font-size: 34px;
+    font-weight: 500;
+
+    color: #000;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+#loginForm {
+    width: 100%;
+}
+
+
+.form-group {
+    width: 100%;
+    margin-bottom: 37px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    color: #000;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.form-group input {
+    width: 100%;
+    height: 26px;
+
+    padding: 5px 9px;
+
+    border: 1px solid #555;
+    border-radius: 3px;
+
+    outline: none;
+
+    background-color: #fff;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+
+.form-group input:focus {
+    border-color: #4b0808;
+
+    box-shadow: 0 0 0 2px rgba(75, 8, 8, 0.12);
+}
+
+
+/* =========================================
+   FORGOT PASSWORD
+========================================= */
+
+.forgot-password {
+    width: 100%;
+
+    text-align: right;
+
+    margin-top: -15px;
+    margin-bottom: 32px;
+}
+
+
+.forgot-password a {
+    color: #000;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   LOGIN MESSAGE
+========================================= */
+
+.login-message {
+    min-height: 18px;
+
+    margin-bottom: 8px;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   SIGN IN BUTTON
+========================================= */
+
+.sign-in-btn {
+    display: block;
+
+    width: 175px;
+    height: 26px;
+
+    margin: 0 auto;
+
+    border: none;
+    border-radius: 15px;
+
+    background-color: #000;
+
+    color: #fff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease,
+                background-color 0.2s ease;
+}
+
+
+.sign-in-btn:hover {
+    background-color: #2a2a2a;
+
+    transform: scale(1.02);
+}
+
+
+.sign-in-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media screen and (max-width: 900px) {
+
+    .login-page {
+        width: 92%;
+    }
+
+
+    .login-box {
+        padding: 45px 30px;
+    }
+
+
+    .login-box h1 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media screen and (max-width: 650px) {
+
+    body {
+        background-color: #760707;
+    }
+
+
+    .login-page {
+        width: 100%;
+        min-height: 100vh;
+
+        margin: 0;
+
+        display: block;
+
+        background-color: #760707;
+    }
+
+
+    .login-image {
+        width: 100%;
+        height: 300px;
+
+        min-height: 0;
+    }
+
+
+    .login-image img {
+        width: 100%;
+        height: 300px;
+
+        min-height: 0;
+    }
+
+
+    .login-section {
+        width: 100%;
+
+        padding: 20px;
+    }
+
+
+    .login-box {
+        width: 100%;
+        height: auto;
+
+        min-height: 430px;
+
+        padding: 40px 30px;
+
+        border-radius: 20px;
+    }
+
+
+    .login-box h1 {
+        font-size: 30px;
+    }
+
+}

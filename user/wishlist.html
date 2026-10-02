@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Favorites | Luxéora</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/wishlist.css">
+</head>
+
+<body>
+<!-- COMMON HEADER -->
+
+<header class="main-header">
+
+    <div class="header-logo">
+
+        <a href="home.html">
+
+            <img
+                src="assets/images/logo.png"
+                alt="Luxéora"
+                class="logo-ring"
+            >
+
+            <span class="logo-text">
+                LUXÉORA
+            </span>
+
+        </a>
+
+    </div>
+        </div>
+
+        <div class="header-search">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Jewellery"
+            >
+
+            <button
+                type="button"
+                id="searchButton"
+            >
+                🔍
+            </button>
+        </div>
+
+        <div class="header-actions">
+
+            <a
+                href="profile.html"
+                class="header-action"
+                title="Profile"
+            >
+                ♙
+            </a>
+
+            <a
+                href="wishlist.html"
+                class="header-action active"
+                title="Favorites"
+            >
+                ♡
+            </a>
+
+            <a
+                href="cart.html"
+                class="header-action"
+                title="Cart"
+            >
+                🛒
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+    <nav class="category-nav">
+         <a href="home.html">
+                HOME
+            </a>
+
+        <a href="collections.html">
+            ALL JEWELLERY
+        </a>
+
+        <a href="rings.html">
+            RINGS
+        </a>
+
+        <a href="necklaces.html">
+            NECKLACES
+        </a>
+
+        <a href="bracelets.html">
+            BRACELETS
+        </a>
+
+        <a href="earrings.html">
+            EARRINGS
+        </a>
+
+        <a href="bangles.html">
+            BANGLES
+        </a>
+
+    </nav>
+
+
+    <!-- FAVORITES -->
+    <main class="wishlist-page">
+
+        <section class="wishlist-section">
+
+            <div class="wishlist-heading">
+
+                <p class="wishlist-small-text">
+                    YOUR COLLECTION
+                </p>
+
+                <h1>
+                    My Favorites
+                </h1>
+
+                <p class="wishlist-subtitle">
+                    Your favorite jewellery pieces, saved in one place.
+                </p>
+
+            </div>
+
+
+            <!-- FAVORITE PRODUCTS -->
+            <div
+                class="wishlist-grid"
+                id="wishlistItems"
+            >
+            </div>
+
+
+            <!-- EMPTY FAVORITES -->
+            <div
+                class="empty-wishlist"
+                id="emptyWishlist"
+            >
+
+                <div class="empty-heart">
+                    ♡
+                </div>
+
+                <h2>
+                    No Favorites Yet
+                </h2>
+
+                <p>
+                    You haven't added any jewellery to your favorites.
+                </p>
+
+                <a href="collections.html">
+                    EXPLORE JEWELLERY
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+
+        <div class="footer-content">
+
+            <div class="footer-column">
+
+                <h3>
+                    LUXÉORA
+                </h3>
+
+                <p>
+                    Timeless jewellery crafted to celebrate
+                    your most precious moments.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    QUICK LINKS
+                </h4>
+
+                <a href="home.html">
+                    Home
+                </a>
+
+                <a href="collections.html">
+                    All Jewellery
+                </a>
+
+                <a href="rings.html">
+                    Rings
+                </a>
+
+                <a href="necklaces.html">
+                    Necklaces
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    CUSTOMER CARE
+                </h4>
+
+                <a href="#">
+                    Contact Us
+                </a>
+
+                <a href="#">
+                    Shipping
+                </a>
+
+                <a href="#">
+                    Returns
+                </a>
+
+                <a href="#">
+                    FAQs
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    FOLLOW US
+                </h4>
+
+                <p>
+                    Instagram
+                </p>
+
+                <p>
+                    Facebook
+                </p>
+
+                <p>
+                    Pinterest
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Luxéora Jewels. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/wishlist.js"></script>
+
+<script src="js/common.js"></script>
+
+</body>
+</html>
