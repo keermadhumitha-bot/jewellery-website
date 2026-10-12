@@ -1,470 +1,154 @@
+/* =========================================================
+   LUXÉORA PRODUCT DETAILS PAGE
+
+   Opened from any product card as:
+       product-details.html?id=<number 1-16>
+
+   The product list below is a copy of the one in collections.js
+   (same IDs, names, prices, images). If you change a product
+   there, change it here and in backend/server.js too.
+
+   Cart and wishlist use the same storage as collections.js:
+       luxeoCart       -> [{ id, name, description, category,
+                             price, oldPrice, image, quantity }]
+       luxeoFavorites  -> [ full product object, ... ]
+   ========================================================= */
+
 document.addEventListener("DOMContentLoaded", function () {
 
+    const CART_KEY = "luxeoCart";
+    const FAVORITES_KEY = "luxeoFavorites";
+    const MAX_QUANTITY = 20;
 
     /* =====================================================
-       PRODUCT DATABASE
-
-       EVERY PRODUCT MUST HAVE A UNIQUE ID
+       PRODUCT DATA  (copied from collections.js)
        ===================================================== */
 
-    const products = {
-
-
-        /* =================================================
-           NECKLACES
-           ================================================= */
-
-        "diamond-necklace": {
-
-            name: "Diamond Necklace",
-
-            type: "NECKLACE",
-
-            price: "₹56,790",
-
-            rating: "4.9",
-
-            image: "assets/images/diamond-necklace.jpg",
-
-            description:
-                "A beautifully crafted diamond necklace designed with an elegant finish for special occasions.",
-
-            height: "18 mm",
-
-            width: "8 mm",
-
-            weight: "12.5 g",
-
-            size: "Adjustable",
-
-            material: "Diamond",
-
-            metal: "Gold",
-
-            purity: "18 KT",
-
-            occasion: "Party & Occasion",
-
-            recommendations: [
-                "crystal-ring",
-                "diamond-bracelet",
-                "classic-bangle"
-            ]
-
-        },
-
-
-        "crystal-necklace": {
-
-            name: "Crystal Necklace",
-
-            type: "NECKLACE",
-
-            price: "₹4,500",
-
-            rating: "4.8",
-
-            image: "assets/images/necklace1.jpg",
-
-            description:
-                "An elegant crystal necklace designed to add sparkle and sophistication to your look.",
-
-            height: "20 mm",
-
-            width: "10 mm",
-
-            weight: "10 g",
-
-            size: "Adjustable",
-
-            material: "Crystal",
-
-            metal: "Gold",
-
-            purity: "18 KT",
-
-            occasion: "Party & Everyday",
-
-            recommendations: [
-                "diamond-necklace",
-                "crystal-ring",
-                "diamond-bracelet"
-            ]
-
-        },
-
-
-        /* =================================================
-           RINGS
-           ================================================= */
-
-        "crystal-ring": {
-
-            name: "Crystal Ring",
-
-            type: "RING",
-
-            price: "₹3,400",
-
-            rating: "4.8",
-
-            image: "assets/images/crystal-ring.jpg",
-
-            description:
-                "A beautiful crystal ring featuring an elegant design suitable for everyday wear and special occasions.",
-
-            height: "7 mm",
-
-            width: "5 mm",
-
-            weight: "4.5 g",
-
-            size: "Adjustable",
-
-            material: "Crystal",
-
-            metal: "Gold",
-
-            purity: "18 KT",
-
-            occasion: "Party & Everyday",
-
-            recommendations: [
-                "diamond-necklace",
-                "diamond-bracelet",
-                "classic-bangle"
-            ]
-
-        },
-
-
-        "royal-diamond-ring": {
-
-            name: "Royal Diamond Ring",
-
-            type: "RING",
-
-            price: "₹5,200",
-
-            rating: "4.9",
-
-            image: "assets/images/ring2.png",
-
-            description:
-                "A timeless royal diamond ring featuring an elegant design crafted for a sophisticated look.",
-
-            height: "7 mm",
-
-            width: "5 mm",
-
-            weight: "4.8 g",
-
-            size: "Adjustable",
-
-            material: "Diamond",
-
-            metal: "Gold",
-
-            purity: "18 KT",
-
-            occasion: "Engagement & Party",
-
-            recommendations: [
-                "diamond-necklace",
-                "crystal-necklace",
-                "diamond-bracelet"
-            ]
-
-        },
-
-
-        /* =================================================
-           BRACELETS
-           ================================================= */
-
-        "diamond-bracelet": {
-
-            name: "Diamond Bracelet",
-
-            type: "BRACELET",
-
-            price: "₹8,500",
-
-            rating: "4.8",
-
-            image: "assets/images/diamond-bracelet.jpg",
-
-            description:
-                "A sophisticated diamond bracelet designed with a graceful finish for both everyday and special occasions.",
-
-            height: "10 mm",
-
-            width: "6 mm",
-
-            weight: "8.2 g",
-
-            size: "Adjustable",
-
-            material: "Diamond",
-
-            metal: "Gold",
-
-            purity: "18 KT",
-
-            occasion: "Everyday & Party",
-
-            recommendations: [
-                "diamond-necklace",
-                "crystal-ring",
-                "classic-bangle"
-            ]
-
-        },
-
-
-        "crystal-bracelet": {
-
-            name: "Crystal Bracelet",
-
-            type: "BRACELET",
-
-            price: "₹2,800",
-
-            rating: "4.7",
-
-            image: "assets/images/bracelet.png",
-
-            description:
-                "A delicate crystal bracelet that combines elegance and simplicity for everyday and special occasions.",
-
-            height: "10 mm",
-
-            width: "6 mm",
-
-            weight: "8.2 g",
-
-            size: "Adjustable",
-
-            material: "Crystal",
-
-            metal: "Gold",
-
-            purity: "18 KT",
-
-            occasion: "Everyday & Party",
-
-            recommendations: [
-                "diamond-necklace",
-                "crystal-ring",
-                "classic-bangle"
-            ]
-
-        },
-
-
-        /* =================================================
-           BANGLES
-           ================================================= */
-
-        "classic-bangle": {
-
-            name: "Classic Gold Bangle",
-
-            type: "BANGLE",
-
-            price: "₹4,500",
-
-            rating: "4.6",
-
-            image: "assets/images/bangle.png",
-
-            description:
-                "A classic bangle designed with a graceful finish that complements both traditional and modern outfits.",
-
-            height: "8 mm",
-
-            width: "8 mm",
-
-            weight: "15 g",
-
-            size: "2.4",
-
-            material: "Gold",
-
-            metal: "Gold",
-
-            purity: "18 KT",
-
-            occasion: "Traditional & Party",
-
-            recommendations: [
-                "diamond-necklace",
-                "crystal-ring",
-                "diamond-bracelet"
-            ]
-
-        }
-
-    };
-
+    const products = [
+        { id: 1,  name: "Diamond Crystal Necklace", description: "Elegant Diamond Necklace",    category: "Necklace",    price: 3450,  oldPrice: 4200,  purity: "18KT",     style: "Classic",     occasion: "Wedding",    design: "Floral",       size: "Medium", gem: "Diamond",  gender: "Women",  image: "assets/images/necklace1.jpg" },
+        { id: 2,  name: "Royal Diamond Ring",       description: "Elegant Statement Ring",      category: "Ring",        price: 5200,  oldPrice: 6500,  purity: "18KT",     style: "Statement",   occasion: "Engagement", design: "Geometric",    size: "Medium", gem: "Diamond",  gender: "Women",  image: "assets/images/ring2.jpeg" },
+        { id: 3,  name: "Diamond Crystal Bracelet", description: "Delicate Diamond Bracelet",   category: "Bracelet",    price: 2800,  oldPrice: 3500,  purity: "14KT",     style: "Minimal",     occasion: "Daily Wear", design: "Geometric",    size: "Medium", gem: "Diamond",  gender: "Women",  image: "assets/images/bracelet1.png" },
+        { id: 4,  name: "Classic Gold Ring",        description: "Timeless Gold Ring",          category: "Ring",        price: 12500, oldPrice: 15000, purity: "18KT",     style: "Classic",     occasion: "Wedding",    design: "Traditional",  size: "Medium", gem: "Diamond",  gender: "Women",  image: "assets/images/ring1.jpeg" },
+        { id: 5,  name: "Elegant Gold Necklace",    description: "Traditional Gold Necklace",   category: "Necklace",    price: 18900, oldPrice: 22000, purity: "22KT",     style: "Traditional", occasion: "Festive",    design: "Floral",       size: "Large",  gem: "Ruby",     gender: "Women",  image: "assets/images/necklace2.png" },
+        { id: 6,  name: "Diamond Bangle",           description: "Modern Diamond Bangle",       category: "Bangle",      price: 15700, oldPrice: 18500, purity: "18KT",     style: "Modern",      occasion: "Party",      design: "Geometric",    size: "Large",  gem: "Diamond",  gender: "Women",  image: "assets/images/bangle1.jpeg" },
+        { id: 7,  name: "Elegant Earrings",         description: "Beautiful Diamond Earrings",  category: "Earring",     price: 9800,  oldPrice: 11500, purity: "14KT",     style: "Minimal",     occasion: "Daily Wear", design: "Contemporary", size: "Small",  gem: "Diamond",  gender: "Women",  image: "assets/images/earrings1.png" },
+        { id: 8,  name: "Bridal Ruby Ring",         description: "Ruby Floral Ring",            category: "Ring",        price: 16500, oldPrice: 19000, purity: "18KT",     style: "Bridal",      occasion: "Wedding",    design: "Floral",       size: "Medium", gem: "Ruby",     gender: "Women",  image: "assets/images/ring3.png" },
+        { id: 9,  name: "Platinum Classic Ring",    description: "Premium Platinum Ring",       category: "Ring",        price: 19500, oldPrice: 22000, purity: "Platinum", style: "Classic",     occasion: "Engagement", design: "Geometric",    size: "Medium", gem: "Diamond",  gender: "Women",  image: "assets/images/ring4.png" },
+        { id: 10, name: "Pearl Diamond Earrings",   description: "Elegant Pearl Earrings",      category: "Earring",     price: 7200,  oldPrice: 8500,  purity: "14KT",     style: "Classic",     occasion: "Party",      design: "Floral",       size: "Small",  gem: "Pearl",    gender: "Women",  image: "assets/images/earrings2.png" },
+        { id: 11, name: "Modern Diamond Bracelet",  description: "Contemporary Bracelet",       category: "Bracelet",    price: 14300, oldPrice: 16500, purity: "18KT",     style: "Modern",      occasion: "Party",      design: "Contemporary", size: "Medium", gem: "Diamond",  gender: "Unisex", image: "assets/images/bracelet2.jpeg" },
+        { id: 12, name: "Traditional Gold Bangle",  description: "Classic Traditional Bangle",  category: "Bangle",      price: 19800, oldPrice: 23000, purity: "22KT",     style: "Traditional", occasion: "Festive",    design: "Traditional",  size: "Large",  gem: "Ruby",     gender: "Women",  image: "assets/images/bangle2.png" },
+        { id: 13, name: "Diamond Mangalsutra",      description: "Elegant Mangalsutra Design",  category: "Mangalsutra", price: 17200, oldPrice: 20000, purity: "18KT",     style: "Modern",      occasion: "Wedding",    design: "Contemporary", size: "Medium", gem: "Diamond",  gender: "Women",  image: "assets/images/necklace4.png" },
+        { id: 14, name: "Minimal Gold Ring",        description: "Simple Everyday Ring",        category: "Ring",        price: 10500, oldPrice: 12500, purity: "9KT",      style: "Minimal",     occasion: "Daily Wear", design: "Contemporary", size: "Small",  gem: "Diamond",  gender: "Unisex", image: "assets/images/ring5.png" },
+        { id: 15, name: "Sapphire Gold Necklace",   description: "Blue Sapphire Necklace",      category: "Necklace",    price: 20500, oldPrice: 24000, purity: "18KT",     style: "Statement",   occasion: "Party",      design: "Contemporary", size: "Large",  gem: "Sapphire", gender: "Women",  image: "assets/images/necklace5.png" },
+        { id: 16, name: "Classic Gold Bracelet",    description: "Everyday Gold Bracelet",      category: "Bracelet",    price: 11200, oldPrice: 13500, purity: "14KT",     style: "Classic",     occasion: "Daily Wear", design: "Traditional",  size: "Medium", gem: "Diamond",  gender: "Unisex", image: "assets/images/bracelet4.png" }
+    ];
 
     /* =====================================================
-       GET PRODUCT ID FROM URL
+       HELPERS
        ===================================================== */
 
-    const urlParams =
-        new URLSearchParams(window.location.search);
-
-
-    const productId =
-        urlParams.get("id");
-
-
-    console.log("Product ID:", productId);
-
-
-    /* =====================================================
-       DO NOT USE A DEFAULT PRODUCT
-       ===================================================== */
-
-    if (!productId) {
-
-        showProductError(
-            "No product was selected."
-        );
-
-        return;
-
+    function byId(id) {
+        return document.getElementById(id);
     }
 
+    function formatINR(amount) {
+        return "₹" + Number(amount).toLocaleString("en-IN");
+    }
+
+    function readArray(key) {
+        try {
+            const value = JSON.parse(localStorage.getItem(key));
+            return Array.isArray(value) ? value : [];
+        } catch (error) {
+            return [];
+        }
+    }
+
+    function saveArray(key, array) {
+        try {
+            localStorage.setItem(key, JSON.stringify(array));
+            return true;
+        } catch (error) {
+            alert("Sorry, this browser could not save your change.");
+            return false;
+        }
+    }
+
+    function setText(id, value) {
+        byId(id).textContent = value || "—";
+    }
 
     /* =====================================================
-       FIND THE EXACT PRODUCT
+       FIND THE PRODUCT FROM THE URL
        ===================================================== */
 
-    const product =
-        products[productId];
+    const rawId = new URLSearchParams(window.location.search).get("id");
 
+    if (!rawId) {
+        showProductError("No product was selected. Please choose a piece from our collection.");
+        return;
+    }
 
-    console.log("Selected Product:", product);
-
-
-    /* =====================================================
-       PRODUCT NOT FOUND
-       ===================================================== */
+    const productId = /^\d+$/.test(rawId) ? Number(rawId) : NaN;
+    const product = products.find(function (item) {
+        return item.id === productId;
+    });
 
     if (!product) {
-
-        showProductError(
-            "The selected product could not be found."
-        );
-
+        showProductError("The selected product could not be found.");
         return;
-
     }
 
-
     /* =====================================================
-       DISPLAY PRODUCT IMAGE
+       DISPLAY THE PRODUCT
        ===================================================== */
 
-    const productImage =
-        document.getElementById("productImage");
+    document.title = product.name + " | Luxéora";
 
+    const productImage = byId("productImage");
 
-    productImage.src =
-        product.image;
+    productImage.src = product.image;
+    productImage.alt = product.name;
 
+    productImage.addEventListener("error", function () {
+        const box = byId("productImageBox");
+        box.classList.add("image-error");
+        box.innerHTML = "";
 
-    productImage.alt =
-        product.name;
+        const message = document.createElement("div");
+        message.className = "image-error-message";
 
+        const title = document.createElement("span");
+        title.textContent = product.name;
 
-    /* =====================================================
-       DISPLAY BASIC PRODUCT INFORMATION
-       ===================================================== */
+        const note = document.createElement("small");
+        note.textContent = "Image unavailable";
 
-    document.getElementById(
-        "productName"
-    ).textContent =
-        product.name;
+        message.append(title, note);
+        box.appendChild(message);
+    });
 
+    setText("productType", product.category.toUpperCase());
+    setText("productName", product.name);
+    setText("productPrice", formatINR(product.price));
+    setText("productOldPrice", product.oldPrice > product.price ? formatINR(product.oldPrice) : "");
 
-    document.getElementById(
-        "productType"
-    ).textContent =
-        product.type;
+    // Built only from the product's own fields: nothing is invented.
+    byId("productDescription").textContent =
+        product.description + ". This " + product.style.toLowerCase() + " " +
+        product.category.toLowerCase() + " is crafted in " + product.purity +
+        " with " + product.gem.toLowerCase() + ", in a " +
+        product.design.toLowerCase() + " design, ideal for " +
+        product.occasion.toLowerCase() + ".";
 
-
-    document.getElementById(
-        "productPrice"
-    ).textContent =
-        product.price;
-
-
-    document.getElementById(
-        "productRating"
-    ).textContent =
-        product.rating;
-
-
-    document.getElementById(
-        "productDescription"
-    ).textContent =
-        product.description;
-
-
-    /* =====================================================
-       DISPLAY SPECIFICATIONS
-       ===================================================== */
-
-    document.getElementById(
-        "productHeight"
-    ).textContent =
-        product.height;
-
-
-    document.getElementById(
-        "productWidth"
-    ).textContent =
-        product.width;
-
-
-    document.getElementById(
-        "productWeight"
-    ).textContent =
-        product.weight;
-
-
-    document.getElementById(
-        "productSize"
-    ).textContent =
-        product.size;
-
-
-    document.getElementById(
-        "productMaterial"
-    ).textContent =
-        product.material;
-
-
-    document.getElementById(
-        "productMetal"
-    ).textContent =
-        product.metal;
-
-
-    document.getElementById(
-        "productPurity"
-    ).textContent =
-        product.purity;
-
-
-    document.getElementById(
-        "productOccasion"
-    ).textContent =
-        product.occasion;
-
+    setText("productCategory", product.category);
+    setText("productPurity", product.purity);
+    setText("productGem", product.gem);
+    setText("productStyle", product.style);
+    setText("productDesign", product.design);
+    setText("productOccasion", product.occasion);
+    setText("productSize", product.size);
+    setText("productGender", product.gender);
 
     /* =====================================================
        QUANTITY
@@ -472,264 +156,155 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let quantity = 1;
 
-
-    const quantityValue =
-        document.getElementById(
-            "quantityValue"
-        );
-
-
-    document
-        .getElementById("increaseQuantity")
-        .addEventListener(
-            "click",
-            function () {
-
-                quantity++;
-
-                quantityValue.textContent =
-                    quantity;
-
-            }
-        );
-
-
-    document
-        .getElementById("decreaseQuantity")
-        .addEventListener(
-            "click",
-            function () {
-
-                if (quantity > 1) {
-
-                    quantity--;
-
-                    quantityValue.textContent =
-                        quantity;
-
-                }
-
-            }
-        );
-
-
-    /* =====================================================
-       ADD TO CART
-       ===================================================== */
-
-    document
-        .getElementById("addToCartButton")
-        .addEventListener(
-            "click",
-            function () {
-
-                const cartItem = {
-
-                    id: productId,
-
-                    name: product.name,
-
-                    type: product.type,
-
-                    price: product.price,
-
-                    image: product.image,
-
-                    quantity: quantity
-
-                };
-
-
-                let cart =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "cart"
-                        )
-                    ) || [];
-
-
-                const existingProduct =
-                    cart.find(
-                        item =>
-                            item.id === productId
-                    );
-
-
-                if (existingProduct) {
-
-                    existingProduct.quantity +=
-                        quantity;
-
-                } else {
-
-                    cart.push(cartItem);
-
-                }
-
-
-                localStorage.setItem(
-                    "cart",
-                    JSON.stringify(cart)
-                );
-
-
-                alert(
-                    product.name +
-                    " added to cart!"
-                );
-
-            }
-        );
-
-
-    /* =====================================================
-       WISHLIST
-       ===================================================== */
-
-    document
-        .getElementById("addToWishlistButton")
-        .addEventListener(
-            "click",
-            function () {
-
-                let wishlist =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "wishlist"
-                        )
-                    ) || [];
-
-
-                const exists =
-                    wishlist.some(
-                        item =>
-                            item.id === productId
-                    );
-
-
-                if (!exists) {
-
-                    wishlist.push({
-
-                        id: productId,
-
-                        name: product.name,
-
-                        type: product.type,
-
-                        price: product.price,
-
-                        image: product.image
-
-                    });
-
-
-                    localStorage.setItem(
-                        "wishlist",
-                        JSON.stringify(wishlist)
-                    );
-
-
-                    alert(
-                        product.name +
-                        " added to wishlist!"
-                    );
-
-                } else {
-
-                    alert(
-                        "Product is already in your wishlist."
-                    );
-
-                }
-
-            }
-        );
-
-
-    /* =====================================================
-       RECOMMENDED PRODUCTS
-       ===================================================== */
-
-    const recommendationsContainer =
-        document.getElementById(
-            "recommendationsContainer"
-        );
-
-
-    recommendationsContainer.innerHTML =
-        "";
-
-
-    product.recommendations.forEach(
-        function (recommendationId) {
-
-
-            const recommendation =
-                products[recommendationId];
-
-
-            if (!recommendation) {
-
-                return;
-
-            }
-
-
-            const card =
-                document.createElement("div");
-
-
-            card.className =
-                "recommendation-card";
-
-
-            card.innerHTML = `
-
-                <div class="recommendation-image">
-
-                    <img
-                        src="${recommendation.image}"
-                        alt="${recommendation.name}"
-                    >
-
-                </div>
-
-
-                <div class="recommendation-info">
-
-                    <h3>
-                        ${recommendation.name}
-                    </h3>
-
-                    <p>
-                        ${recommendation.price}
-                    </p>
-
-                </div>
-
-            `;
-
-
-            card.addEventListener(
-                "click",
-                function () {
-
-                    window.location.href =
-                        "product-details.html?id=" +
-                        recommendationId;
-
-                }
-            );
-
-
-            recommendationsContainer.appendChild(
-                card
-            );
-
+    const quantityValue = byId("quantityValue");
+
+    byId("increaseQuantity").addEventListener("click", function () {
+        if (quantity >= MAX_QUANTITY) {
+            alert("You can buy at most " + MAX_QUANTITY + " of one item.");
+            return;
         }
-    );
 
+        quantity++;
+        quantityValue.textContent = quantity;
+    });
+
+    byId("decreaseQuantity").addEventListener("click", function () {
+        if (quantity > 1) {
+            quantity--;
+            quantityValue.textContent = quantity;
+        }
+    });
+
+    /* =====================================================
+       ADD TO CART  (same format as collections.js)
+       ===================================================== */
+
+    byId("addToCartButton").addEventListener("click", function () {
+
+        const cart = readArray(CART_KEY);
+
+        const existing = cart.find(function (item) {
+            return Number(item.id) === product.id;
+        });
+
+        let capped = false;
+
+        if (existing) {
+            const total = Number(existing.quantity) + quantity;
+            existing.quantity = Math.min(total, MAX_QUANTITY);
+            capped = total > MAX_QUANTITY;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                description: product.description,
+                category: product.category,
+                price: product.price,
+                oldPrice: product.oldPrice,
+                image: product.image,
+                quantity: quantity
+            });
+        }
+
+        if (!saveArray(CART_KEY, cart)) {
+            return;
+        }
+
+        alert(
+            product.name + " has been added to your cart." +
+            (capped ? "\nThe quantity was limited to " + MAX_QUANTITY + "." : "")
+        );
+    });
+
+    /* =====================================================
+       WISHLIST  (same storage as collections.js)
+       ===================================================== */
+
+    const wishlistButton = byId("addToWishlistButton");
+
+    function isFavorite() {
+        return readArray(FAVORITES_KEY).some(function (item) {
+            return Number(item.id) === product.id;
+        });
+    }
+
+    function updateWishlistButton() {
+        const favorite = isFavorite();
+        wishlistButton.textContent = favorite ? "♥" : "♡";
+        wishlistButton.setAttribute(
+            "aria-label",
+            favorite ? "Remove from wishlist" : "Add to wishlist"
+        );
+    }
+
+    wishlistButton.addEventListener("click", function () {
+
+        let favorites = readArray(FAVORITES_KEY);
+
+        if (isFavorite()) {
+            favorites = favorites.filter(function (item) {
+                return Number(item.id) !== product.id;
+            });
+        } else {
+            favorites.push(product);
+        }
+
+        if (saveArray(FAVORITES_KEY, favorites)) {
+            updateWishlistButton();
+        }
+    });
+
+    updateWishlistButton();
+
+    /* =====================================================
+       YOU MAY ALSO LIKE
+       Same category first, then other products.
+       ===================================================== */
+
+    const container = byId("recommendationsContainer");
+
+    const others = products.filter(function (item) {
+        return item.id !== product.id;
+    });
+
+    const recommendations = others
+        .filter(function (item) { return item.category === product.category; })
+        .concat(others.filter(function (item) { return item.category !== product.category; }))
+        .slice(0, 4);
+
+    container.innerHTML = "";
+
+    recommendations.forEach(function (item) {
+
+        const card = document.createElement("div");
+        card.className = "recommendation-card";
+
+        const imageWrap = document.createElement("div");
+        imageWrap.className = "recommendation-image";
+
+        const img = document.createElement("img");
+        img.src = item.image;
+        img.alt = item.name;
+        imageWrap.appendChild(img);
+
+        const info = document.createElement("div");
+        info.className = "recommendation-info";
+
+        const title = document.createElement("h3");
+        title.textContent = item.name;
+
+        const price = document.createElement("p");
+        price.textContent = formatINR(item.price);
+
+        info.append(title, price);
+        card.append(imageWrap, info);
+
+        card.addEventListener("click", function () {
+            window.location.href = "product-details.html?id=" + item.id;
+        });
+
+        container.appendChild(card);
+    });
 
 });
 
@@ -740,81 +315,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function showProductError(message) {
 
-    document.getElementById(
-        "productName"
-    ).textContent =
-        "Product Not Found";
+    function setText(id, value) {
+        const element = document.getElementById(id);
+        if (element) element.textContent = value;
+    }
 
+    setText("productType", "JEWELLERY");
+    setText("productName", "Product Not Found");
+    setText("productPrice", "—");
+    setText("productOldPrice", "");
+    setText("productDescription", message);
 
-    document.getElementById(
-        "productType"
-    ).textContent =
-        "JEWELLERY";
+    [
+        "productCategory", "productPurity", "productGem", "productStyle",
+        "productDesign", "productOccasion", "productSize", "productGender"
+    ].forEach(function (id) {
+        setText(id, "—");
+    });
 
+    const image = document.getElementById("productImage");
+    if (image) image.style.display = "none";
 
-    document.getElementById(
-        "productPrice"
-    ).textContent =
-        "—";
-
-
-    document.getElementById(
-        "productDescription"
-    ).textContent =
-        message;
-
-
-    document.getElementById(
-        "productImage"
-    ).style.display =
-        "none";
-
-
-    document.getElementById(
-        "productHeight"
-    ).textContent =
-        "—";
-
-
-    document.getElementById(
-        "productWidth"
-    ).textContent =
-        "—";
-
-
-    document.getElementById(
-        "productWeight"
-    ).textContent =
-        "—";
-
-
-    document.getElementById(
-        "productSize"
-    ).textContent =
-        "—";
-
-
-    document.getElementById(
-        "productMaterial"
-    ).textContent =
-        "—";
-
-
-    document.getElementById(
-        "productMetal"
-    ).textContent =
-        "—";
-
-
-    document.getElementById(
-        "productPurity"
-    ).textContent =
-        "—";
-
-
-    document.getElementById(
-        "productOccasion"
-    ).textContent =
-        "—";
-
+    // Nothing to buy, so switch the buttons off.
+    ["addToCartButton", "addToWishlistButton", "increaseQuantity", "decreaseQuantity"].forEach(function (id) {
+        const button = document.getElementById(id);
+        if (button) button.disabled = true;
+    });
 }

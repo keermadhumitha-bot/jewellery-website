@@ -12,15 +12,9 @@
 
     <title>Cart | Luxéora Jewels</title>
 
-    <link
-        rel="stylesheet"
-        href="css/common.css"
-    >
+    <link rel="stylesheet" href="css/common.css">
 
-    <link
-        rel="stylesheet"
-        href="css/cart.css"
-    >
+    <link rel="stylesheet" href="css/cart.css">
 
 </head>
 
@@ -57,7 +51,11 @@
             placeholder="Search Jewellery"
         >
 
-        <button type="button">
+        <!-- CHANGED: added id="searchButton" so the search button works -->
+        <button
+            type="button"
+            id="searchButton"
+        >
             🔍
         </button>
 
@@ -89,20 +87,24 @@
         >
             🛒
         </a>
+          <a 
+        href="orders.html" 
+        class="header-action" 
+        title="Orders">📦</a>
+
 
     </div>
 
 </header>
 
 
-<!-- =========================================================
-     NAVIGATION
-     ========================================================= -->
+<!-- NAVIGATION -->
 
 <nav class="category-nav">
-     <a href="home.html">
-                HOME
-            </a>
+
+    <a href="home.html">
+        HOME
+    </a>
 
     <a href="collections.html">
         ALL JEWELLERY
@@ -131,9 +133,7 @@
 </nav>
 
 
-<!-- =========================================================
-     CART
-     ========================================================= -->
+<!-- CART -->
 
 <main class="cart-page">
 
@@ -208,9 +208,11 @@
             </div>
 
 
+            <!-- CHANGED: added id="checkoutButton" -->
             <button
                 type="button"
                 class="checkout-button"
+                id="checkoutButton"
             >
                 PROCEED TO CHECKOUT
             </button>
@@ -244,9 +246,7 @@
 </main>
 
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
+<!-- FOOTER -->
 
 <footer class="footer-section">
 
@@ -303,6 +303,10 @@
 
             <a href="profile.html">
                 My Account
+            </a>
+
+            <a href="orders.html">
+                My Orders
             </a>
 
             <a href="cart.html">

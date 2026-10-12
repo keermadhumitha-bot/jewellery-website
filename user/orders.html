@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders | Luxéora Jewels</title>
+
+    <!-- Shared website styles -->
+    <link rel="stylesheet" href="css/common.css">
+
+    <!-- Orders page styles -->
+    <link rel="stylesheet" href="css/orders.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="main-header">
+
+        <div class="header-logo">
+            <a href="home.html">
+                <img src="assets/images/logo.png"
+                     alt="Luxéora logo"
+                     class="logo-ring">
+                <span class="logo-text">LUXÉORA</span>
+            </a>
+        </div>
+
+        <div class="header-search">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Jewellery"
+                aria-label="Search jewellery">
+
+            <button type="button"
+                    id="searchButton"
+                    aria-label="Search">
+                🔍
+            </button>
+        </div>
+
+        <div class="header-actions">
+
+            <a href="profile.html"
+               class="header-action"
+               title="My Account"
+               aria-label="My Account">♙</a>
+
+            <a href="wishlist.html"
+               class="header-action"
+               title="Wishlist"
+               aria-label="Wishlist">♡</a>
+
+            <a href="cart.html"
+               class="header-action"
+               title="Shopping Cart"
+               aria-label="Shopping Cart">🛒</a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav class="category-nav" aria-label="Main navigation">
+
+        <a href="home.html">HOME</a>
+        <a href="collections.html">ALL JEWELLERY</a>
+        <a href="rings.html">RINGS</a>
+        <a href="necklaces.html">NECKLACES</a>
+        <a href="bracelets.html">BRACELETS</a>
+        <a href="earrings.html">EARRINGS</a>
+        <a href="bangles.html">BANGLES</a>
+
+    </nav>
+
+
+    <!-- ================= ORDERS PAGE ================= -->
+
+    <main class="orders-page">
+
+        <!-- Page heading -->
+
+        <section class="orders-heading">
+
+            <p class="orders-eyebrow">YOUR LUXÉORA EXPERIENCE</p>
+
+            <h1>My Orders</h1>
+
+            <p class="orders-subtitle">
+                Every purchase holds a special moment.
+                View and manage your jewellery orders here.
+            </p>
+
+        </section>
+
+
+        <!-- Order summary -->
+
+        <section class="orders-summary" aria-label="Order summary">
+
+            <div class="summary-card">
+
+                <span class="summary-label">Total Orders</span>
+
+                <strong id="totalOrders">0</strong>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span class="summary-label">In Progress</span>
+
+                <strong id="activeOrders">0</strong>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span class="summary-label">Delivered</span>
+
+                <strong id="deliveredOrders">0</strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- Filter and sorting -->
+
+        <section class="orders-toolbar">
+
+            <div class="orders-filter">
+
+                <label for="orderStatusFilter">Filter orders</label>
+
+                <select id="orderStatusFilter">
+                    <option value="all">All Orders</option>
+                    <option value="pending">Pending Payment</option>
+                    <option value="paid">Paid</option>
+                    <option value="processing">Processing</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+
+            </div>
+
+            <div class="orders-sort">
+
+                <label for="orderSort">Sort by</label>
+
+                <select id="orderSort">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- Loading state -->
+
+        <section id="ordersLoading"
+                 class="orders-message"
+                 role="status"
+                 hidden>
+
+            <div class="loading-spinner" aria-hidden="true"></div>
+
+            <h2>Loading Your Orders</h2>
+
+            <p>Please wait while we retrieve your order details.</p>
+
+        </section>
+
+
+        <!-- Error state -->
+
+        <section id="ordersError"
+                 class="orders-message"
+                 role="alert"
+                 hidden>
+
+            <h2>Unable to Load Orders</h2>
+
+            <p id="ordersErrorText">
+                Something went wrong while loading your orders.
+            </p>
+
+            <button type="button"
+                    id="retryOrders"
+                    class="secondary-button">
+                Try Again
+            </button>
+
+        </section>
+
+
+        <!-- Empty state -->
+
+        <section id="emptyOrders"
+                 class="orders-empty"
+                 hidden>
+
+            <div class="empty-orders-icon" aria-hidden="true">♡</div>
+
+            <h2>No Orders Yet</h2>
+
+            <p>
+                Your jewellery journey starts here.
+                Explore our collections and find something you love.
+            </p>
+
+            <a href="collections.html" class="shop-button">
+                EXPLORE COLLECTIONS
+            </a>
+
+        </section>
+
+
+        <!-- No matching filtered orders -->
+
+        <section id="noMatchingOrders"
+                 class="orders-message"
+                 hidden>
+
+            <h2>No Matching Orders</h2>
+
+            <p>Try selecting a different order status.</p>
+
+            <button type="button"
+                    id="clearOrderFilter"
+                    class="secondary-button">
+                Show All Orders
+            </button>
+
+        </section>
+
+
+        <!-- Orders are generated here by orders.js -->
+
+        <section id="ordersList"
+                 class="orders-list"
+                 aria-label="Your orders">
+
+        </section>
+
+
+        <!-- Order details modal -->
+
+        <div id="orderDetailsModal"
+             class="order-modal"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="orderDetailsTitle"
+             hidden>
+
+            <div class="order-modal-content">
+
+                <button type="button"
+                        id="closeOrderDetails"
+                        class="modal-close"
+                        aria-label="Close order details">
+                    &times;
+                </button>
+
+                <p class="orders-eyebrow">LUXÉORA JEWELS</p>
+
+                <h2 id="orderDetailsTitle">Order Details</h2>
+
+                <div id="orderDetailsContent"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Cancellation confirmation modal -->
+
+        <div id="cancelOrderModal"
+             class="order-modal"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="cancelOrderTitle"
+             hidden>
+
+            <div class="order-modal-content cancel-modal-content">
+
+                <button type="button"
+                        id="closeCancelModal"
+                        class="modal-close"
+                        aria-label="Close cancellation dialog">
+                    &times;
+                </button>
+
+                <h2 id="cancelOrderTitle">Cancel Order?</h2>
+
+                <p>
+                    Are you sure you want to request cancellation
+                    of this order?
+                </p>
+
+                <p class="cancel-warning">
+                    Orders that have already been paid may require
+                    additional processing under the cancellation
+                    and refund policy.
+                </p>
+
+                <div class="modal-actions">
+
+                    <button type="button"
+                            id="keepOrderButton"
+                            class="secondary-button">
+                        Keep Order
+                    </button>
+
+                    <button type="button"
+                            id="confirmCancelOrder"
+                            class="danger-button">
+                        Confirm Cancellation
+                    </button>
+
+                </div>
+
+                <p id="cancelOrderMessage"
+                   class="modal-feedback"
+                   role="status"
+                   hidden></p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer-section">
+
+        <div class="footer-container">
+
+            <div class="footer-column footer-brand">
+
+                <h2>Luxéora</h2>
+
+                <p>
+                    Timeless jewellery crafted with elegance,
+                    designed to make every moment shine.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>QUICK LINKS</h3>
+
+                <a href="home.html">Home</a>
+                <a href="collections.html">All Jewellery</a>
+                <a href="rings.html">Rings</a>
+                <a href="necklaces.html">Necklaces</a>
+                <a href="bracelets.html">Bracelets</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>CUSTOMER CARE</h3>
+
+                <a href="profile.html">My Account</a>
+                <a href="orders.html">My Orders</a>
+                <a href="#">Shipping &amp; Delivery</a>
+                <a href="#">Returns &amp; Exchange</a>
+                <a href="#">Privacy Policy</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>CONTACT US</h3>
+
+                <p>123 Jewellery Street<br>Chennai, Tamil Nadu</p>
+
+                <p>+91 98765 43210</p>
+
+                <p>support@luxeora.com</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>© 2026 Luxéora Jewels. All Rights Reserved.</p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Shared website functionality -->
+    <script src="js/common.js"></script>
+
+    <!-- Orders page functionality -->
+    <script src="js/orders.js"></script>
+
+</body>
+
+</html>
+```

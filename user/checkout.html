@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Luxéora Jewels</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body>
+
+<!-- COMMON HEADER -->
+<header class="main-header">
+    <div class="header-logo">
+        <a href="home.html">
+            <img src="assets/images/logo.png" alt="Luxéora" class="logo-ring">
+            <span class="logo-text">LUXÉORA</span>
+        </a>
+    </div>
+
+    <div class="header-search">
+        <input type="text" id="searchInput" placeholder="Search Jewellery">
+        <button type="button" id="searchButton">🔍</button>
+    </div>
+
+    <div class="header-actions">
+        <a href="profile.html" class="header-action" title="Profile">♙</a>
+        <a href="wishlist.html" class="header-action" title="Wishlist">♡</a>
+        <a href="cart.html" class="header-action" title="Cart">🛒</a>
+    </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav class="category-nav">
+    <a href="home.html">HOME</a>
+    <a href="collections.html">ALL JEWELLERY</a>
+    <a href="rings.html">RINGS</a>
+    <a href="necklaces.html">NECKLACES</a>
+    <a href="bracelets.html">BRACELETS</a>
+    <a href="earrings.html">EARRINGS</a>
+    <a href="bangles.html">BANGLES</a>
+</nav>
+
+<main class="checkout-page">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="home.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="cart.html">Cart</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Checkout</span>
+    </nav>
+
+    <div class="checkout-heading">
+        <h1>Checkout</h1>
+        <p>Confirm your delivery details and choose how you'd like to pay.</p>
+    </div>
+
+    <!-- Blocked account -->
+    <section class="notice notice-error" id="blockedNotice" role="alert" hidden>
+        <h2>Checkout is unavailable</h2>
+        <p>Your account is blocked, so you can't place orders right now. Your cart and past orders are untouched. Contact support@luxeora.com for help.</p>
+        <a class="notice-link" href="cart.html">Back to cart</a>
+    </section>
+
+    <!-- Empty cart -->
+    <section class="notice" id="emptyCheckout" hidden>
+        <h2>Your cart is empty</h2>
+        <p>Add some jewellery before checking out.</p>
+        <a class="notice-link" href="collections.html">Browse jewellery</a>
+    </section>
+
+    <!-- Payment awaiting confirmation -->
+    <section class="notice notice-warn" id="pendingPanel" role="status" hidden>
+        <h2>We're still confirming your payment</h2>
+        <p id="pendingText">We couldn't confirm your payment yet.</p>
+        <p class="notice-small">Your cart has not been cleared and no order has been created. Don't pay again until you've checked.</p>
+        <div class="notice-actions">
+            <button type="button" class="notice-button" id="checkStatusButton">Check payment status</button>
+            <a class="notice-link" href="cart.html">Back to cart</a>
+        </div>
+    </section>
+
+    <!-- Payment failed (definitive) -->
+    <section class="notice notice-error" id="failedPanel" role="alert" hidden>
+        <h2>Payment couldn't be verified</h2>
+        <p id="failedText"></p>
+        <div class="notice-actions">
+            <button type="button" class="notice-button" id="tryAgainButton">Back to checkout</button>
+        </div>
+    </section>
+
+    <div class="checkout-layout" id="checkoutLayout" hidden>
+
+        <div class="checkout-main">
+
+            <!-- DELIVERY DETAILS -->
+            <section class="checkout-card">
+                <div class="card-head">
+                    <h2>Delivery details</h2>
+                    <button type="button" class="edit-button" id="editAddressButton">Edit</button>
+                </div>
+
+                <!-- Read-only view -->
+                <div class="address-view" id="addressView">
+                    <dl class="detail-list">
+                        <div>
+                            <dt>Customer name</dt>
+                            <dd id="viewName"></dd>
+                        </div>
+                        <div>
+                            <dt>Phone number</dt>
+                            <dd id="viewPhone"></dd>
+                        </div>
+                        <div>
+                            <dt>Email</dt>
+                            <dd id="viewEmail"></dd>
+                        </div>
+                        <div>
+                            <dt>Delivery address</dt>
+                            <dd id="viewAddress"></dd>
+                        </div>
+                    </dl>
+
+                    <div class="delivery-box">
+                        <span class="delivery-label">Estimated delivery</span>
+                        <strong id="deliveryDateText"></strong>
+                    </div>
+                </div>
+
+                <!-- Edit form -->
+                <form id="shippingForm" novalidate hidden>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Full name</label>
+                            <input type="text" id="fullName" name="fullName" autocomplete="name" maxlength="80" required>
+                            <small class="field-error" id="err-fullName"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="10-digit mobile number" required>
+                            <small class="field-error" id="err-phone"></small>
+                        </div>
+
+                        <div class="form-group form-full">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" maxlength="120" required>
+                            <small class="field-error" id="err-email"></small>
+                        </div>
+
+                        <div class="form-group form-full">
+                            <label for="addressLine1">Address line 1</label>
+                            <input type="text" id="addressLine1" name="addressLine1" autocomplete="address-line1" maxlength="120" required>
+                            <small class="field-error" id="err-addressLine1"></small>
+                        </div>
+
+                        <div class="form-group form-full">
+                            <label for="addressLine2">Address line 2 <span class="optional">(optional)</span></label>
+                            <input type="text" id="addressLine2" name="addressLine2" autocomplete="address-line2" maxlength="120">
+                            <small class="field-error" id="err-addressLine2"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" autocomplete="address-level2" maxlength="60" required>
+                            <small class="field-error" id="err-city"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pincode">PIN code</label>
+                            <input type="text" id="pincode" name="pincode" autocomplete="postal-code" inputmode="numeric" maxlength="6" required>
+                            <small class="field-error" id="err-pincode"></small>
+                        </div>
+
+                        <div class="form-group form-full">
+                            <label for="state">State</label>
+                            <select id="state" name="state" autocomplete="address-level1" required>
+                                <option value="">Select state</option>
+                                <option>Andaman and Nicobar Islands</option>
+                                <option>Andhra Pradesh</option>
+                                <option>Arunachal Pradesh</option>
+                                <option>Assam</option>
+                                <option>Bihar</option>
+                                <option>Chandigarh</option>
+                                <option>Chhattisgarh</option>
+                                <option>Dadra and Nagar Haveli and Daman and Diu</option>
+                                <option>Delhi</option>
+                                <option>Goa</option>
+                                <option>Gujarat</option>
+                                <option>Haryana</option>
+                                <option>Himachal Pradesh</option>
+                                <option>Jammu and Kashmir</option>
+                                <option>Jharkhand</option>
+                                <option>Karnataka</option>
+                                <option>Kerala</option>
+                                <option>Ladakh</option>
+                                <option>Lakshadweep</option>
+                                <option>Madhya Pradesh</option>
+                                <option>Maharashtra</option>
+                                <option>Manipur</option>
+                                <option>Meghalaya</option>
+                                <option>Mizoram</option>
+                                <option>Nagaland</option>
+                                <option>Odisha</option>
+                                <option>Puducherry</option>
+                                <option>Punjab</option>
+                                <option>Rajasthan</option>
+                                <option>Sikkim</option>
+                                <option>Tamil Nadu</option>
+                                <option>Telangana</option>
+                                <option>Tripura</option>
+                                <option>Uttar Pradesh</option>
+                                <option>Uttarakhand</option>
+                                <option>West Bengal</option>
+                            </select>
+                            <small class="field-error" id="err-state"></small>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="save-button" id="saveAddressButton">Save address</button>
+                </form>
+            </section>
+
+            <!-- PAYMENT METHOD -->
+            <section class="checkout-card">
+                <h2>Payment method</h2>
+
+                <div class="pay-options" role="radiogroup" aria-label="Payment method">
+
+                    <!-- UPI -->
+                    <div class="pay-block">
+                        <label class="pay-option">
+                            <input type="radio" name="paymentMethod" value="upi">
+                            <span class="pay-option-body">
+                                <strong>UPI</strong>
+                                <small>Scan a QR code or pay with your UPI app / UPI ID</small>
+                            </span>
+                        </label>
+
+                        <div class="method-panel" id="panel-upi" hidden>
+                            <div class="qr-layout">
+                                <div class="qr-frame">
+                                    <img id="qrImage" alt="UPI QR code for this order" width="220" height="220" hidden>
+                                    <div class="qr-placeholder" id="qrPlaceholder">Preparing your QR code…</div>
+                                </div>
+
+                                <div class="qr-info">
+                                    <p class="qr-amount">Amount to pay: <strong id="qrAmount"></strong></p>
+                                    <ol class="qr-steps">
+                                        <li>Open any UPI app (Google Pay, PhonePe, Paytm…).</li>
+                                        <li>Scan this QR code.</li>
+                                        <li>Confirm the amount and pay. This page updates by itself.</li>
+                                    </ol>
+                                    <p class="qr-status" id="qrStatus" role="status" aria-live="polite"></p>
+                                    <p class="qr-timer" id="qrTimer"></p>
+                                    <button type="button" class="edit-button" id="qrRefreshButton" hidden>Generate new QR code</button>
+                                </div>
+                            </div>
+                            <p class="method-hint">Prefer your UPI app or UPI ID? Use the button below the total.</p>
+                        </div>
+                    </div>
+
+                    <!-- CARD -->
+                    <div class="pay-block">
+                        <label class="pay-option">
+                            <input type="radio" name="paymentMethod" value="card">
+                            <span class="pay-option-body">
+                                <strong>Credit / Debit card</strong>
+                                <small>Enter card number, expiry and CVV in Razorpay's secure window</small>
+                            </span>
+                        </label>
+
+                        <div class="method-panel" id="panel-card" hidden>
+                            <ol class="qr-steps">
+                                <li>Press <strong>Pay by card</strong> below the total.</li>
+                                <li>Type your card number, expiry date and CVV in the secure window.</li>
+                                <li>Approve the bank's OTP, if asked. We confirm the payment with the server.</li>
+                            </ol>
+                            <p class="method-hint test-hint">Test Mode only: use card 4111 1111 1111 1111, any future expiry and any CVV. Remove this line before going live.</p>
+                        </div>
+                    </div>
+
+                    <!-- NET BANKING -->
+                    <div class="pay-block">
+                        <label class="pay-option">
+                            <input type="radio" name="paymentMethod" value="netbanking">
+                            <span class="pay-option-body">
+                                <strong>Net banking</strong>
+                                <small>Pay through your bank's website</small>
+                            </span>
+                        </label>
+
+                        <div class="method-panel" id="panel-netbanking" hidden>
+                            <ol class="qr-steps">
+                                <li>Press <strong>Continue to net banking</strong> below the total.</li>
+                                <li>Choose your bank in the secure window.</li>
+                                <li>Sign in on your bank's page and approve the payment. In Test Mode you'll see a success or failure page instead.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- WALLET -->
+                    <div class="pay-block">
+                        <label class="pay-option">
+                            <input type="radio" name="paymentMethod" value="wallet">
+                            <span class="pay-option-body">
+                                <strong>Wallets</strong>
+                                <small>Paytm, PhonePe and other supported wallets</small>
+                            </span>
+                        </label>
+
+                        <div class="method-panel" id="panel-wallet" hidden>
+                            <ol class="qr-steps">
+                                <li>Press <strong>Continue to wallet</strong> below the total.</li>
+                                <li>Pick your wallet in the secure window.</li>
+                                <li>Approve the payment in the wallet's page or app.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- ALL -->
+                    <div class="pay-block">
+                        <label class="pay-option">
+                            <input type="radio" name="paymentMethod" value="all">
+                            <span class="pay-option-body">
+                                <strong>More options</strong>
+                                <small>Show every payment method available</small>
+                            </span>
+                        </label>
+
+                        <div class="method-panel" id="panel-all" hidden>
+                            <ol class="qr-steps">
+                                <li>Press <strong>Choose how to pay</strong> below the total.</li>
+                                <li>Pick any method in the secure window (cards, UPI, net banking, wallets and more).</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+
+                <p class="secure-note">
+                    For your safety, card, UPI and bank details are typed only inside Razorpay's secure payment window (Test Mode), never on this page.
+                </p>
+            </section>
+
+        </div>
+
+        <!-- ORDER SUMMARY -->
+        <aside class="checkout-card order-summary">
+            <h2>Order summary</h2>
+
+            <ul class="summary-items" id="checkoutItems"></ul>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotalAmount">₹0</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Delivery</span>
+                <span id="deliveryAmount">FREE</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Estimated delivery date</span>
+                <span id="summaryDeliveryDate"></span>
+            </div>
+
+            <div class="summary-total">
+                <span>Total amount</span>
+                <span id="totalAmount">₹0</span>
+            </div>
+
+            <div class="form-message" id="formMessage" role="alert" aria-live="polite" hidden></div>
+
+            <button type="button" class="pay-button" id="payButton">
+                <span id="payButtonText">Pay securely</span>
+            </button>
+
+            <a class="edit-cart-link" href="cart.html">Edit cart</a>
+        </aside>
+
+    </div>
+</main>
+
+<!-- PROCESSING OVERLAY -->
+<div class="processing-overlay" id="processingOverlay" role="status" aria-live="polite" hidden>
+    <div class="processing-box">
+        <div class="spinner" aria-hidden="true"></div>
+        <p id="processingText">Confirming your payment…</p>
+    </div>
+</div>
+
+<!-- SUCCESS POPUP -->
+<div class="modal-backdrop" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle" hidden>
+    <div class="modal-box">
+        <div class="modal-tick" aria-hidden="true">✓</div>
+        <h2 id="successTitle">Successfully paid</h2>
+        <p>Thank you! Your payment of <strong id="successAmount"></strong> was confirmed.</p>
+        <p class="notice-small">Order <span id="successOrderId"></span><br>Estimated delivery: <span id="successDelivery"></span></p>
+        <p class="notice-small" id="successNote"></p>
+        <p class="notice-small">Taking you to the home page in <span id="successCountdown">5</span>s…</p>
+        <button type="button" class="notice-button" id="goHomeButton">Go to home page</button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer-section">
+    <div class="footer-container">
+        <div class="footer-column footer-brand">
+            <h2>Luxéora</h2>
+            <p>Timeless jewellery crafted with elegance, designed to make every moment shine.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>QUICK LINKS</h3>
+            <a href="home.html">Home</a>
+            <a href="collections.html">All Jewellery</a>
+            <a href="rings.html">Rings</a>
+            <a href="necklaces.html">Necklaces</a>
+            <a href="bracelets.html">Bracelets</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>CUSTOMER CARE</h3>
+            <a href="profile.html">My Account</a>
+            <a href="orders.html">My Orders</a>
+            <a href="#">Shipping & Delivery</a>
+            <a href="#">Returns & Exchange</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>CONTACT US</h3>
+            <p>123 Jewellery Street<br>Chennai, Tamil Nadu</p>
+            <p>+91 98765 43210</p>
+            <p>support@luxeora.com</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Luxéora Jewels. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Official Razorpay Checkout script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/common.js"></script>
+
+</body>
+
+</html>

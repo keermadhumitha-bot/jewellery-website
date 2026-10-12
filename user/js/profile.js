@@ -1,73 +1,50 @@
 /* =====================================================
    LUXÉORA USER PROFILE
+
+   Changes from your version:
+   1. LOGOUT now removes the real login (luxeoCurrentUser)
+      and goes to login.html
+   2. PREVIOUS ORDERS understands orders saved by checkout
+      (they hold an "items" list), and "View all orders"
+      now opens orders.html
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    const LOGIN_PAGE = "login.html";
+    const CURRENT_USER_KEY = "luxeoCurrentUser";
 
 
     /* =================================================
        ELEMENTS
     ================================================== */
 
-    const profileForm =
-        document.getElementById("profileForm");
+    const profileForm = document.getElementById("profileForm");
+    const addressForm = document.getElementById("addressForm");
 
-    const addressForm =
-        document.getElementById("addressForm");
+    const fullName = document.getElementById("fullName");
+    const phoneNumber = document.getElementById("phoneNumber");
+    const emailAddress = document.getElementById("emailAddress");
+    const aadhaarNumber = document.getElementById("aadhaarNumber");
 
-    const fullName =
-        document.getElementById("fullName");
+    const addressLine = document.getElementById("addressLine");
+    const city = document.getElementById("city");
+    const state = document.getElementById("state");
+    const pincode = document.getElementById("pincode");
+    const addressType = document.getElementById("addressType");
 
-    const phoneNumber =
-        document.getElementById("phoneNumber");
+    const displayName = document.getElementById("displayName");
+    const displayEmail = document.getElementById("displayEmail");
+    const displayPhone = document.getElementById("displayPhone");
+    const profileInitial = document.getElementById("profileInitial");
 
-    const emailAddress =
-        document.getElementById("emailAddress");
+    const previousOrders = document.getElementById("previousOrders");
+    const viewOrdersButton = document.getElementById("viewOrdersButton");
 
-    const aadhaarNumber =
-        document.getElementById("aadhaarNumber");
-
-    const addressLine =
-        document.getElementById("addressLine");
-
-    const city =
-        document.getElementById("city");
-
-    const state =
-        document.getElementById("state");
-
-    const pincode =
-        document.getElementById("pincode");
-
-    const addressType =
-        document.getElementById("addressType");
-
-    const displayName =
-        document.getElementById("displayName");
-
-    const displayEmail =
-        document.getElementById("displayEmail");
-
-    const displayPhone =
-        document.getElementById("displayPhone");
-
-    const profileInitial =
-        document.getElementById("profileInitial");
-
-    const previousOrders =
-        document.getElementById("previousOrders");
-
-    const editProfileButton =
-        document.getElementById("editProfileButton");
-
-    const addPaymentButton =
-        document.getElementById("addPaymentButton");
-
-    const changePasswordButton =
-        document.getElementById("changePasswordButton");
-
-    const logoutButton =
-        document.getElementById("logoutButton");
+    const editProfileButton = document.getElementById("editProfileButton");
+    const addPaymentButton = document.getElementById("addPaymentButton");
+    const changePasswordButton = document.getElementById("changePasswordButton");
+    const logoutButton = document.getElementById("logoutButton");
 
 
     /* =================================================
@@ -76,8 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function getProfile() {
 
-        const savedProfile =
-            localStorage.getItem("luxeoProfile");
+        const savedProfile = localStorage.getItem("luxeoProfile");
 
         if (!savedProfile) {
 
@@ -114,10 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function saveProfile(profile) {
 
-        localStorage.setItem(
-            "luxeoProfile",
-            JSON.stringify(profile)
-        );
+        localStorage.setItem("luxeoProfile", JSON.stringify(profile));
 
     }
 
@@ -128,40 +101,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function displayProfile() {
 
-        const profile =
-            getProfile();
+        const profile = getProfile();
 
+        fullName.value = profile.name || "";
+        phoneNumber.value = profile.phone || "";
+        emailAddress.value = profile.email || "";
+        aadhaarNumber.value = profile.aadhaar || "";
 
-        fullName.value =
-            profile.name || "";
-
-        phoneNumber.value =
-            profile.phone || "";
-
-        emailAddress.value =
-            profile.email || "";
-
-        aadhaarNumber.value =
-            profile.aadhaar || "";
-
-
-        displayName.textContent =
-            profile.name || "User Name";
-
-        displayEmail.textContent =
-            profile.email || "user@example.com";
-
-        displayPhone.textContent =
-            profile.phone || "+91 00000 00000";
-
+        displayName.textContent = profile.name || "User Name";
+        displayEmail.textContent = profile.email || "user@example.com";
+        displayPhone.textContent = profile.phone || "+91 00000 00000";
 
         if (profile.name) {
 
             profileInitial.textContent =
-                profile.name
-                    .trim()
-                    .charAt(0)
-                    .toUpperCase();
+                profile.name.trim().charAt(0).toUpperCase();
 
         } else {
 
@@ -178,41 +132,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function loadAddress() {
 
-        const savedAddress =
-            localStorage.getItem("luxeoAddress");
+        const savedAddress = localStorage.getItem("luxeoAddress");
 
         if (!savedAddress) {
             return;
         }
 
-
         try {
 
-            const address =
-                JSON.parse(savedAddress);
+            const address = JSON.parse(savedAddress);
 
-
-            addressLine.value =
-                address.address || "";
-
-            city.value =
-                address.city || "";
-
-            state.value =
-                address.state || "";
-
-            pincode.value =
-                address.pincode || "";
-
-            addressType.value =
-                address.type || "Home";
-
+            addressLine.value = address.address || "";
+            city.value = address.city || "";
+            state.value = address.state || "";
+            pincode.value = address.pincode || "";
+            addressType.value = address.type || "Home";
 
         } catch (error) {
 
-            console.log(
-                "Unable to load address."
-            );
+            console.log("Unable to load address.");
 
         }
 
@@ -223,254 +161,228 @@ document.addEventListener("DOMContentLoaded", function () {
        SAVE PERSONAL INFORMATION
     ================================================== */
 
-    profileForm.addEventListener(
-        "submit",
-        function (event) {
+    profileForm.addEventListener("submit", function (event) {
 
-            event.preventDefault();
+        event.preventDefault();
 
+        const name = fullName.value.trim();
+        const phone = phoneNumber.value.trim();
+        const email = emailAddress.value.trim();
+        const aadhaar = aadhaarNumber.value.trim();
 
-            const name =
-                fullName.value.trim();
+        if (name === "") {
 
-            const phone =
-                phoneNumber.value.trim();
-
-            const email =
-                emailAddress.value.trim();
-
-            const aadhaar =
-                aadhaarNumber.value.trim();
-
-
-            if (name === "") {
-
-                alert(
-                    "Please enter your full name."
-                );
-
-                fullName.focus();
-
-                return;
-
-            }
-
-
-            if (phone === "") {
-
-                alert(
-                    "Please enter your phone number."
-                );
-
-                phoneNumber.focus();
-
-                return;
-
-            }
-
-
-            if (email === "") {
-
-                alert(
-                    "Please enter your email address."
-                );
-
-                emailAddress.focus();
-
-                return;
-
-            }
-
-
-            if (aadhaar !== "") {
-
-                if (!/^\d{12}$/.test(aadhaar)) {
-
-                    alert(
-                        "Aadhaar number must contain exactly 12 digits."
-                    );
-
-                    aadhaarNumber.focus();
-
-                    return;
-
-                }
-
-            }
-
-
-            const profile = {
-
-                name: name,
-
-                phone: phone,
-
-                email: email,
-
-                aadhaar: aadhaar
-
-            };
-
-
-            saveProfile(profile);
-
-            displayProfile();
-
-
-            alert(
-                "Profile information saved successfully!"
-            );
+            alert("Please enter your full name.");
+            fullName.focus();
+            return;
 
         }
-    );
+
+        if (phone === "") {
+
+            alert("Please enter your phone number.");
+            phoneNumber.focus();
+            return;
+
+        }
+
+        if (email === "") {
+
+            alert("Please enter your email address.");
+            emailAddress.focus();
+            return;
+
+        }
+
+        if (aadhaar !== "") {
+
+            if (!/^\d{12}$/.test(aadhaar)) {
+
+                alert("Aadhaar number must contain exactly 12 digits.");
+                aadhaarNumber.focus();
+                return;
+
+            }
+
+        }
+
+        const profile = {
+            name: name,
+            phone: phone,
+            email: email,
+            aadhaar: aadhaar
+        };
+
+        saveProfile(profile);
+        displayProfile();
+
+        alert("Profile information saved successfully!");
+
+    });
 
 
     /* =================================================
        SAVE ADDRESS
     ================================================== */
 
-    addressForm.addEventListener(
-        "submit",
-        function (event) {
+    addressForm.addEventListener("submit", function (event) {
 
-            event.preventDefault();
+        event.preventDefault();
 
+        const address = addressLine.value.trim();
+        const cityValue = city.value.trim();
+        const stateValue = state.value.trim();
+        const pincodeValue = pincode.value.trim();
+        const type = addressType.value;
 
-            const address =
-                addressLine.value.trim();
+        if (address === "") {
 
-            const cityValue =
-                city.value.trim();
-
-            const stateValue =
-                state.value.trim();
-
-            const pincodeValue =
-                pincode.value.trim();
-
-            const type =
-                addressType.value;
-
-
-            if (address === "") {
-
-                alert(
-                    "Please enter your address."
-                );
-
-                addressLine.focus();
-
-                return;
-
-            }
-
-
-            if (cityValue === "") {
-
-                alert(
-                    "Please enter your city."
-                );
-
-                city.focus();
-
-                return;
-
-            }
-
-
-            if (stateValue === "") {
-
-                alert(
-                    "Please enter your state."
-                );
-
-                state.focus();
-
-                return;
-
-            }
-
-
-            if (!/^\d{6}$/.test(pincodeValue)) {
-
-                alert(
-                    "Please enter a valid 6-digit pincode."
-                );
-
-                pincode.focus();
-
-                return;
-
-            }
-
-
-            const addressData = {
-
-                address: address,
-
-                city: cityValue,
-
-                state: stateValue,
-
-                pincode: pincodeValue,
-
-                type: type
-
-            };
-
-
-            localStorage.setItem(
-                "luxeoAddress",
-                JSON.stringify(addressData)
-            );
-
-
-            alert(
-                "Address saved successfully!"
-            );
+            alert("Please enter your address.");
+            addressLine.focus();
+            return;
 
         }
-    );
+
+        if (cityValue === "") {
+
+            alert("Please enter your city.");
+            city.focus();
+            return;
+
+        }
+
+        if (stateValue === "") {
+
+            alert("Please enter your state.");
+            state.focus();
+            return;
+
+        }
+
+        if (!/^\d{6}$/.test(pincodeValue)) {
+
+            alert("Please enter a valid 6-digit pincode.");
+            pincode.focus();
+            return;
+
+        }
+
+        const addressData = {
+            address: address,
+            city: cityValue,
+            state: stateValue,
+            pincode: pincodeValue,
+            type: type
+        };
+
+        localStorage.setItem("luxeoAddress", JSON.stringify(addressData));
+
+        alert("Address saved successfully!");
+
+    });
 
 
     /* =================================================
        EDIT PROFILE BUTTON
     ================================================== */
 
-    editProfileButton.addEventListener(
-        "click",
-        function () {
+    editProfileButton.addEventListener("click", function () {
 
-            fullName.focus();
+        fullName.focus();
 
-            window.scrollTo({
-                top: 300,
-                behavior: "smooth"
-            });
+        window.scrollTo({
+            top: 300,
+            behavior: "smooth"
+        });
 
-        }
-    );
+    });
 
 
     /* =================================================
        PREVIOUS ORDERS
     ================================================== */
 
+    function readJSON(key, fallback) {
+
+        try {
+
+            const value = localStorage.getItem(key);
+            return value ? JSON.parse(value) : fallback;
+
+        } catch (error) {
+
+            return fallback;
+
+        }
+
+    }
+
+    // Turns an order from checkout (items list) or an old-style
+    // order (product / image / price) into one display row.
+    function toDisplayOrder(order) {
+
+        const items = Array.isArray(order.items)
+            ? order.items
+            : Array.isArray(order.products)
+                ? order.products
+                : [];
+
+        const first = items[0] || {};
+        const firstName = first.name || first.title || "";
+
+        let product = order.product || firstName || "Jewellery order";
+
+        if (!order.product && items.length > 1) {
+            product += " + " + (items.length - 1) + " more";
+        }
+
+        const total = order.total ?? order.totalAmount ?? order.price ?? 0;
+
+        const status = String(order.status || "Delivered");
+
+        return {
+            id: order.id ?? order.orderId ?? order.orderNumber ?? "—",
+            product: product,
+            image: order.image || first.image || "",
+            price: Number(total) || 0,
+            status: status.charAt(0).toUpperCase() + status.slice(1)
+        };
+
+    }
+
+    function orderBelongsToUser(order, user) {
+
+        if (!user) {
+            return true;
+        }
+
+        const orderEmail = String(order.customerEmail || order.email || "").toLowerCase();
+        const userEmail = String(user.email || "").toLowerCase();
+
+        if (orderEmail && userEmail && orderEmail === userEmail) {
+            return true;
+        }
+
+        return order.userId != null &&
+            user.id != null &&
+            String(order.userId) === String(user.id);
+
+    }
+
     function loadPreviousOrders() {
 
-        const orders =
-            JSON.parse(
-                localStorage.getItem(
-                    "luxeoOrders"
-                ) || "[]"
-            );
+        const saved = readJSON("luxeoOrders", []);
+        const user = readJSON(CURRENT_USER_KEY, null);
 
+        const orders = (Array.isArray(saved) ? saved : [])
+            .filter(function (order) {
+                return orderBelongsToUser(order, user);
+            });
 
         previousOrders.innerHTML = "";
 
-
         /*
-            If there are no completed orders,
+            If there are no orders,
             show sample/demo orders.
         */
 
@@ -496,28 +408,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
             ];
 
+            sampleOrders.forEach(function (order) {
 
-            sampleOrders.forEach(
-                function (order) {
+                createOrderItem(order);
 
-                    createOrderItem(order);
-
-                }
-            );
-
+            });
 
             return;
 
         }
 
+        // Newest first, at most 3 on the profile page.
+        orders
+            .slice()
+            .reverse()
+            .slice(0, 3)
+            .forEach(function (order) {
 
-        orders.forEach(
-            function (order) {
+                createOrderItem(toDisplayOrder(order));
 
-                createOrderItem(order);
-
-            }
-        );
+            });
 
     }
 
@@ -528,52 +438,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function createOrderItem(order) {
 
-        const orderItem =
-            document.createElement("div");
+        const orderItem = document.createElement("div");
+        orderItem.className = "order-item";
 
-        orderItem.className =
-            "order-item";
+        const imageBox = document.createElement("div");
+        imageBox.className = "order-image";
 
+        if (order.image) {
 
-        orderItem.innerHTML = `
+            const image = document.createElement("img");
+            image.src = order.image;
+            image.alt = order.product;
+            imageBox.appendChild(image);
 
-            <div class="order-image">
+        }
 
-                <img
-                    src="${order.image}"
-                    alt="${order.product}"
-                >
+        const info = document.createElement("div");
+        info.className = "order-info";
 
-            </div>
+        const title = document.createElement("h3");
+        title.textContent = order.product;
 
+        const idLine = document.createElement("p");
+        idLine.textContent = "Order ID: " + order.id;
 
-            <div class="order-info">
+        const priceLine = document.createElement("p");
+        priceLine.textContent = "₹" + Number(order.price).toLocaleString("en-IN");
 
-                <h3>
-                    ${order.product}
-                </h3>
+        info.append(title, idLine, priceLine);
 
-                <p>
-                    Order ID: ${order.id}
-                </p>
+        const status = document.createElement("span");
+        status.className = "order-status";
+        status.textContent = order.status || "Delivered";
 
-                <p>
-                    ₹${Number(order.price).toLocaleString("en-IN")}
-                </p>
+        orderItem.append(imageBox, info, status);
 
-            </div>
+        previousOrders.appendChild(orderItem);
 
+    }
 
-            <span class="order-status">
-                ${order.status || "Delivered"}
-            </span>
+    // "View all orders" opens the My Orders page.
+    if (viewOrdersButton) {
 
-        `;
-
-
-        previousOrders.appendChild(
-            orderItem
-        );
+        viewOrdersButton.setAttribute("href", "orders.html");
 
     }
 
@@ -582,124 +489,81 @@ document.addEventListener("DOMContentLoaded", function () {
        ADD PAYMENT METHOD
     ================================================== */
 
-    addPaymentButton.addEventListener(
-        "click",
-        function () {
+    addPaymentButton.addEventListener("click", function () {
 
-            const paymentType =
-                prompt(
-                    "Enter payment method (Card / UPI):"
-                );
+        const paymentType = prompt("Enter payment method (Card / UPI):");
 
-
-            if (!paymentType) {
-                return;
-            }
-
-
-            const paymentDetails =
-                prompt(
-                    "Enter the payment details:"
-                );
-
-
-            if (!paymentDetails) {
-                return;
-            }
-
-
-            alert(
-                paymentType +
-                " payment method added successfully!"
-            );
-
+        if (!paymentType) {
+            return;
         }
-    );
+
+        const paymentDetails = prompt("Enter the payment details:");
+
+        if (!paymentDetails) {
+            return;
+        }
+
+        alert(paymentType + " payment method added successfully!");
+
+    });
 
 
     /* =================================================
        CHANGE PASSWORD
     ================================================== */
 
-    changePasswordButton.addEventListener(
-        "click",
-        function () {
+    changePasswordButton.addEventListener("click", function () {
 
-            const currentPassword =
-                prompt(
-                    "Enter your current password:"
-                );
+        const currentPassword = prompt("Enter your current password:");
 
+        if (!currentPassword) {
+            return;
+        }
 
-            if (!currentPassword) {
-                return;
-            }
+        const newPassword = prompt("Enter your new password:");
 
+        if (!newPassword) {
+            return;
+        }
 
-            const newPassword =
-                prompt(
-                    "Enter your new password:"
-                );
+        if (newPassword.length < 6) {
 
-
-            if (!newPassword) {
-                return;
-            }
-
-
-            if (newPassword.length < 6) {
-
-                alert(
-                    "Password must contain at least 6 characters."
-                );
-
-                return;
-
-            }
-
-
-            alert(
-                "Password changed successfully!"
-            );
+            alert("Password must contain at least 6 characters.");
+            return;
 
         }
-    );
+
+        alert("Password changed successfully!");
+
+    });
 
 
     /* =================================================
        LOGOUT
     ================================================== */
 
-    logoutButton.addEventListener(
-        "click",
-        function () {
+    logoutButton.addEventListener("click", function () {
 
-            const confirmLogout =
-                confirm(
-                    "Are you sure you want to logout?"
-                );
+        const confirmLogout = confirm("Are you sure you want to logout?");
 
-
-            if (!confirmLogout) {
-                return;
-            }
-
-
-            /*
-                Clear only the login/session information
-                when you add authentication later.
-            */
-
-            localStorage.removeItem(
-                "luxeoLoggedIn"
-            );
-
-
-            window.location.href =
-                "home.html";
-
+        if (!confirmLogout) {
+            return;
         }
-    );
+
+        /*
+            Remove only the login. The cart, wishlist, orders and
+            the list of registered users stay in this browser.
+            luxeoCurrentUser is the key the rest of the site
+            (checkout, orders) uses to know who is logged in.
+        */
+
+        localStorage.removeItem(CURRENT_USER_KEY);
+        localStorage.removeItem("luxeoLoggedIn");
+
+        // replace() so the Back button doesn't return to the profile.
+        window.location.replace(LOGIN_PAGE);
+
+    });
 
 
     /* =================================================
